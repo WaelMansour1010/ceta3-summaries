@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ملخصات Ceta3</title>
+<meta name="description" content="ملخصات مواد شهادة CETA / CFTe في التحليل الفني: نسخة شاملة ونسخة مركّزة، مع صور صفحات الأصل.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Reem+Kufi:wght@700&display=swap">
+<style>
+/* Layout: one centered chart-paper sheet, two choices side by side, downloads below. */
+:root {
+  --paper: #F3F6F5; --sheet: #FCFDFD; --ink: #16222B; --muted: #5A6A72; --line: #D6E0DE;
+  --grid: rgba(22, 90, 84, .055); --accent: #0D6B60; --accent-soft: #DCEEEA;
+  --f-display: "Reem Kufi", "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --f-body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --f-mono: "IBM Plex Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --paper: #0F1619; --sheet: #141D21; --ink: #E2EAE8; --muted: #93A4A8; --line: #263439;
+    --grid: rgba(79, 193, 174, .045); --accent: #55C4B1; --accent-soft: #173832; color-scheme: dark; }
+}
+html, body { background: var(--paper); color: var(--ink); }
+body { margin: 0; font: 400 16px/1.8 var(--f-body);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px; }
+main { max-width: 52rem; margin: 0 auto; padding-inline: 16px; padding-block: clamp(2rem, 8vh, 5rem) 3rem; }
+.pf { font: 500 .8rem/1 var(--f-mono); letter-spacing: .3em; color: var(--accent); direction: ltr; text-align: right; margin: 0; }
+h1 { font: 700 clamp(2rem, 6vw, 3rem)/1.3 var(--f-display); margin: .5rem 0 .4rem; }
+.lede { color: var(--muted); max-width: 40rem; margin: 0 0 2rem; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.card { display: flex; flex-direction: column; gap: .4rem; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 1.3rem 1.4rem; color: var(--ink); text-decoration: none; }
+.card:hover { border-color: var(--accent); }
+.card:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.card .k { font-size: .78rem; font-weight: 700; color: var(--accent); }
+.card b { font: 700 1.4rem/1.4 var(--f-display); }
+.card p { margin: 0; color: var(--muted); font-size: .93rem; }
+.card .go { margin-top: auto; padding-top: .6rem; font-weight: 700; color: var(--accent); }
+h2 { font: 700 1.1rem/1.5 var(--f-body); margin: 2.4rem 0 .7rem; }
+.dl { display: flex; flex-wrap: wrap; gap: .6rem; }
+.dl a { display: inline-flex; gap: .5rem; align-items: center; padding: .55rem 1rem; border-radius: 8px; border: 1px solid var(--line); background: var(--sheet); color: var(--ink); text-decoration: none; font-weight: 500; }
+.dl a:hover { border-color: var(--accent); }
+.dl small { color: var(--muted); font-family: var(--f-mono); }
+ul { padding-inline-start: 1.3rem; color: var(--muted); }
+footer { margin-top: 2.5rem; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1rem; }
+@media (max-width: 640px) { .cards { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<main>
+  <p class="pf" aria-hidden="true">X X X O O O X X X X</p>
+  <h1>ملخصات Ceta3</h1>
+  <p class="lede">ملخصات مواد شهادة <b>CETA / CFTe</b> في التحليل الفني: ملاحظات بخط اليد، وملاحظات المحاضرات، والكتيّب الدراسي للمستوى الثالث، والجلسات المسجلة، والامتحانات بإجاباتها. أي رقم صفحة في الملخص بيفتح صورة الصفحة الأصلية.</p>
+
+  <div class="cards">
+    <a class="card" href="concise.html">
+      <span class="k">للمذاكرة السريعة</span>
+      <b>النسخة المركّزة</b>
+      <p>12 موضوع، كل موضوع في شرح واحد مدمج من كل المصادر، من غير تكرار. فيها ورقة معادلات ودليل امتحان.</p>
+      <span class="go">افتح</span>
+    </a>
+    <a class="card" href="full.html">
+      <span class="k">للرجوع لأي ملف</span>
+      <b>النسخة الشاملة</b>
+      <p>ملخص مفصّل لكل ملف لوحده (33 قسم)، مع خريطة المواضيع وتنبيهات الأخطاء في المصادر.</p>
+      <span class="go">افتح</span>
+    </a>
+  </div>
+
+  <h2>تحميل PDF</h2>
+  <div class="dl">
+    <a href="ceta3-concise.pdf" download>النسخة المركّزة <small>167 ص · 18 MB</small></a>
+    <a href="ceta3-full.pdf" download>النسخة الشاملة <small>307 ص · 24 MB</small></a>
+  </div>
+
+  <h2>إزاي تستخدمه</h2>
+  <ul>
+    <li>ابدأ بالمركّزة، وارجع للشاملة لو محتاج تفاصيل ملف معيّن.</li>
+    <li>على الموبايل: زرار «المواد» فوق بيفتح القائمة، و«بحث» بيدوّر في كل الملخصات.</li>
+    <li>المربعات البرتقالي «نقاط امتحانية»، و«تنبيه» مكان بتختلف فيه المصادر.</li>
+  </ul>
+  <footer>ملخصات للمذاكرة الشخصية. المرجع الأساسي هو المواد الأصلية للكورس.</footer>
+</main>
+</body>
+</html>
