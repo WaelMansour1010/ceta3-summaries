@@ -194,6 +194,13 @@ ol.topics li { break-inside: avoid; }
 .key { border-inline-start: 3px solid var(--accent); padding: .3rem .9rem; margin: 1rem 0; background: var(--accent-soft); border-radius: 0 8px 8px 0; }
 @media print { .fig { break-inside: avoid; } }
 
+/* study progress */
+.secpos { margin: .35rem 0 0; font-size: .8rem; color: var(--muted); font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; gap: .3rem .8rem; align-items: center; }
+.secpos .w { display: inline-block; height: .45rem; border-radius: 999px; background: var(--accent); vertical-align: middle; margin-inline-start: .35rem; min-width: 2px; }
+.readbar { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60; pointer-events: none; }
+.readbar i { display: block; height: 100%; width: 0; background: var(--accent); }
+@media print { .secpos, .readbar { display: none !important; } }
+
 /* image viewer */
 .lb { position: fixed; inset: 0; z-index: 50; background: var(--viewer); color: var(--viewer-ink); display: flex; flex-direction: column; direction: rtl; }
 .lb-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; padding: calc(env(safe-area-inset-top, 0px) + .5rem) 12px .5rem; border-bottom: 1px solid rgba(255,255,255,.12); }
@@ -277,6 +284,7 @@ ol.topics li { break-inside: avoid; }
 }
 </style>
 
+<div class="readbar" aria-hidden="true"><i id="readbar"></i></div>
 <div class="app">
   <div class="print-only cover">
     <p class="pf">X X X O O O X X X X</p>
@@ -12119,6 +12127,27 @@ Balance of payments = Current account + Capital account
   scrim.addEventListener('click', function () { drawer(false); });
   document.getElementById('searchBtn').addEventListener('click', function () { drawer(true); setTimeout(function () { qInput.focus(); }, 250); });
 
+  // ---- study progress: position and relative weight of every section ----
+  var studySecs = secs.filter(function (s) { return s.dataset.id !== 'overview' && s.dataset.id !== 'appendix'; });
+  var totalLen = studySecs.reduce(function (a, s) { return a + s.textContent.length; }, 0) || 1;
+  var posOf = {};
+  studySecs.forEach(function (s, i) {
+    var w = 100 * s.textContent.length / totalLen;
+    posOf[s.dataset.id] = (i + 1) + '/' + studySecs.length;
+    var head = s.querySelector('.sec-head');
+    if (!head) return;
+    var p = document.createElement('p'); p.className = 'secpos';
+    p.innerHTML = '<span>القسم ' + (i + 1) + ' من ' + studySecs.length + '</span><span>وزنه ' + w.toFixed(1) + '% من النسخة<i class="w" style="width:' + Math.max(0.15, w * 0.25).toFixed(2) + 'rem"></i></span>';
+    head.appendChild(p);
+  });
+  var readbar = document.getElementById('readbar');
+  function updateBar() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    readbar.style.width = (h > 0 ? Math.min(100, 100 * window.scrollY / h) : 0) + '%';
+  }
+  window.addEventListener('scroll', updateBar, { passive: true });
+  window.addEventListener('resize', updateBar);
+
   function show(id, jump) {
     if (!byId[id]) id = 'overview';
     current = id;
@@ -12126,7 +12155,8 @@ Balance of payments = Current account + Capital account
     links.forEach(function (a) {
       if (a.dataset.go === id) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
-    tbTitle.textContent = byId[id].dataset.title;
+    tbTitle.textContent = byId[id].dataset.title + (posOf[id] ? ' · ' + posOf[id] : '');
+    setTimeout(updateBar, 0);
     try { localStorage.setItem('ceta3-sec', id); } catch (e) {}
     var target = jump ? document.getElementById(jump) : null;
     if (target) target.scrollIntoView({ block: 'start' });
