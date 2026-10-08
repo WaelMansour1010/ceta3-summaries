@@ -168,9 +168,31 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 .
 .gist { font-size: 1.05rem; background: var(--accent-soft); border-radius: 10px; padding: .8rem 1.1rem; margin: 0 0 1.5rem; max-width: 48rem; }
 .prose blockquote.note { color: var(--ink); background: var(--exam-soft); border-inline-start: 3px solid var(--exam); border-radius: 0 8px 8px 0; padding: .45rem .9rem; font-size: .93rem; }
 .prose blockquote.note p { margin: .2rem 0; }
+.legend.key-l { background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
 .legend.note-l { background: var(--exam-soft); color: var(--exam); border: 1px solid color-mix(in srgb, var(--exam) 40%, transparent); }
 ol.topics { columns: 2 14rem; column-gap: 2rem; padding-inline-start: 1.4rem; }
 ol.topics li { break-inside: avoid; }
+
+/* diagrams (explained version) */
+.fig { margin: 1.4rem 0; padding: .9rem .9rem .7rem; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); max-width: 46rem; }
+.fig .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.5rem), 1fr)); gap: .8rem; }
+.fig svg.dg { display: block; width: 100%; height: auto; direction: ltr; }
+.fig figcaption { font-size: .88rem; color: var(--muted); margin-top: .5rem; line-height: 1.7; }
+.dg text { font-family: var(--f-body); font-size: 13px; fill: var(--ink); }
+.dg .t.m { fill: var(--muted); } .dg .t.a { fill: var(--accent); } .dg .t.d { fill: var(--unsure); } .dg .t.e { fill: var(--exam); }
+.dg .t.s { font-size: 11px; } .dg .t.b { font-weight: 700; } .dg .t.h { font-size: 15px; font-weight: 700; }
+.dg .price { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.dg .price.thin { stroke-width: 1.4; }
+.dg .up { stroke: var(--accent); } .dg .dn { stroke: var(--unsure); } .dg .ex { stroke: var(--exam); } .dg .mu { stroke: var(--muted); }
+.dg .lvl { fill: none; stroke: var(--muted); stroke-width: 1.1; stroke-dasharray: 5 4; }
+.dg .lvl.solid { stroke-dasharray: none; }
+.dg .grid { stroke: var(--line); stroke-width: 1; fill: none; }
+.dg .zone { fill: var(--accent-soft); stroke: none; } .dg .zone2 { fill: var(--exam-soft); stroke: none; } .dg .bad { fill: var(--unsure-soft); stroke: none; }
+.dg .box { fill: none; stroke: var(--line); }
+.dg .pt { fill: var(--ink); } .dg .pt.a { fill: var(--accent); } .dg .pt.d { fill: var(--unsure); } .dg .pt.e { fill: var(--exam); }
+.dg .ah { fill: var(--muted); }
+.key { border-inline-start: 3px solid var(--accent); padding: .3rem .9rem; margin: 1rem 0; background: var(--accent-soft); border-radius: 0 8px 8px 0; }
+@media print { .fig { break-inside: avoid; } }
 
 /* image viewer */
 .lb { position: fixed; inset: 0; z-index: 50; background: var(--viewer); color: var(--viewer-ink); display: flex; flex-direction: column; direction: rtl; }
@@ -1270,13 +1292,15 @@ ol.topics li { break-inside: avoid; }
 <li>⚠ صِف بلغة يابانية: N = «ثلاث سيقان، اتجاهها كذا، مداها كذا» لا «Higher highs». Y ليست الـBroadening top الغربي (له شروط موضع وتركيب وإطار واتجاه) — المقارنة شكلية. نمط الشموع يُذكر <strong>باسمه</strong>.</li>
 </ul>
 <h3>Bottoming-out (والقمة مرآته) <a class="ref" data-img="icha_28" href="img/icha_28.jpg" rel="noopener" target="_blank">الجلسات ص28</a> <a class="ref" data-img="ichimoku_13" href="img/ichimoku_13.jpg" rel="noopener" target="_blank">خط اليد ص13</a></h3>
-<p>الامتحان يسأل <strong>التفاصيل لا الرسم</strong>. خط أفقي من القاع الأول = <strong>Border line</strong>.
-1. A (قاع) ← B ← C <strong>أعلى من A</strong>.
-2. C خلال <strong>26 يومًا</strong> من A (± يوم).
-3. خلال أيام من C: <strong>Tenkan يعبر Kijun لأعلى، Chikou فوق سعر ما قبل 26 يومًا، السعر يعبر السحابة لأعلى</strong>.
-4. تسارع؛ قد يصحح لكن السحابة تدعمه ويستأنف خلال <strong>تسعة أيام</strong>.
-5. يُستحسن Breakaway gap بعد C (والأفضل Gaps متتالية)، و<strong>ألا يعود السعر تحت الـBase line</strong>.
-- الأشكال: <strong>الأقوى قاع أعلى لا يعبر الـBorder line</strong>؛ ثم Double bottom كلاسيكي؛ وأحيانًا قاع أدنى.</p>
+<p>الامتحان يسأل <strong>التفاصيل لا الرسم</strong>. خط أفقي من القاع الأول = <strong>Border line</strong>.</p>
+<ol>
+<li>A (قاع) ← B ← C <strong>أعلى من A</strong>.</li>
+<li>C خلال <strong>26 يومًا</strong> من A (± يوم).</li>
+<li>خلال أيام من C: <strong>Tenkan يعبر Kijun لأعلى، Chikou فوق سعر ما قبل 26 يومًا، السعر يعبر السحابة لأعلى</strong>.</li>
+<li>تسارع؛ قد يصحح لكن السحابة تدعمه ويستأنف خلال <strong>تسعة أيام</strong>.</li>
+<li>يُستحسن Breakaway gap بعد C (والأفضل Gaps متتالية)، و<strong>ألا يعود السعر تحت الـBase line</strong>.
+- الأشكال: <strong>الأقوى قاع أعلى لا يعبر الـBorder line</strong>؛ ثم Double bottom كلاسيكي؛ وأحيانًا قاع أدنى.</li>
+</ol>
 <blockquote class="note">
 <p><strong>تنبيه:</strong> خط اليد والمحاضرات: «C عند نفس مستوى A تقريبًا على الـBorder line»؛ الجلسات: C <strong>أعلى من A</strong> هو الأقوى، والـDouble bottom شكل ثانٍ. <a class="ref" data-img="ichimoku_13" href="img/ichimoku_13.jpg" rel="noopener" target="_blank">خط اليد ص13</a> <a class="ref" data-img="icha_28" href="img/icha_28.jpg" rel="noopener" target="_blank">الجلسات ص28</a></p>
 </blockquote>
@@ -1427,6 +1451,7 @@ ol.topics li { break-inside: avoid; }
 </ul>
 <div class="callout exam"><h2 id="ichimoku-h8">نقاط امتحانية</h2>
 <ul>
+<li><strong>الموجة Y جاءت في السؤال الإجباري العام الماضي:</strong> أربع سيقان يتسع مداها (قمة أعلى وقاع أدنى)، نمط انعكاسي، مقابلها Broadening / Expanding triangle (شكلًا فقط) وفي الشموع Engulfing، وهدفها <code>Y = B + (A − C)</code>. <a class="ref" data-img="ichimoku_12" href="img/ichimoku_12.jpg" rel="noopener" target="_blank">خط اليد ص12</a></li>
 <li>المعادلات الخمس من الذاكرة: <code>Tenkan = (HH9 + LL9)/2</code>، <code>Kijun = (HH26 + LL26)/2</code>، <code>Span A = (Tenkan + Kijun)/2</code> +26، <code>Span B = (HH52 + LL52)/2</code> +26، Chikou = Close −26. الإزاحة رسم لا حساب.</li>
 <li>Median من HH/LL بالظلال لا الإغلاقات؛ Chikou وحده بالإغلاق؛ Typical price <code>(H+L+C)/3</code> مختلف. أمثلة: 42/50/48/40 ← 45؛ 20/10 ← 15 ثم 20/11 ← 15.5.</li>
 <li>Ichimoku ≠ Cloud؛ «A glance at an equilibrium chart»؛ Lagging، Trend follower، Objective، بلا Targets مباشرة.</li>

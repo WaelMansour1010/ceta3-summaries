@@ -29,7 +29,7 @@ main { max-width: 52rem; margin: 0 auto; padding-inline: 16px; padding-block: cl
 .pf { font: 500 .8rem/1 var(--f-mono); letter-spacing: .3em; color: var(--accent); direction: ltr; text-align: right; margin: 0; }
 h1 { font: 700 clamp(2rem, 6vw, 3rem)/1.3 var(--f-display); margin: .5rem 0 .4rem; }
 .lede { color: var(--muted); max-width: 40rem; margin: 0 0 2rem; }
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
 .card { display: flex; flex-direction: column; gap: .4rem; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 1.3rem 1.4rem; color: var(--ink); text-decoration: none; }
 .card:hover { border-color: var(--accent); }
 .card:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -44,7 +44,7 @@ h2 { font: 700 1.1rem/1.5 var(--f-body); margin: 2.4rem 0 .7rem; }
 .dl small { color: var(--muted); font-family: var(--f-mono); }
 ul { padding-inline-start: 1.3rem; color: var(--muted); }
 footer { margin-top: 2.5rem; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1rem; }
-@media (max-width: 640px) { .cards { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 860px) { .cards { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
@@ -54,6 +54,12 @@ footer { margin-top: 2.5rem; font-size: .82rem; color: var(--muted); border-top:
   <p class="lede">ملخصات مواد شهادة <b>CETA / CFTe</b> في التحليل الفني: ملاحظات بخط اليد، وملاحظات المحاضرات، والكتيّب الدراسي للمستوى الثالث، والجلسات المسجلة، والامتحانات بإجاباتها. أي رقم صفحة في الملخص بيفتح صورة الصفحة الأصلية.</p>
 
   <div class="cards">
+    <a class="card" href="explained.html">
+      <span class="k">للفهم</span>
+      <b>الشرح بالرسومات</b>
+      <p>شرح مبسّط لكل موضوع بأكثر من 200 رسمة توضيحية محسوبة بالأرقام، ومع كل موضوع أسئلته من الامتحانات والكشكول بإجاباتها.</p>
+      <span class="go">افتح</span>
+    </a>
     <a class="card" href="concise.html">
       <span class="k">للمذاكرة السريعة</span>
       <b>النسخة المركّزة</b>
@@ -70,13 +76,14 @@ footer { margin-top: 2.5rem; font-size: .82rem; color: var(--muted); border-top:
 
   <h2>تحميل PDF</h2>
   <div class="dl">
+    <a href="ceta3-explained.pdf" download>الشرح بالرسومات <small>257 ص · 18 MB</small></a>
     <a href="ceta3-concise.pdf" download>النسخة المركّزة <small>167 ص · 18 MB</small></a>
     <a href="ceta3-full.pdf" download>النسخة الشاملة <small>307 ص · 24 MB</small></a>
   </div>
 
   <h2>إزاي تستخدمه</h2>
   <ul>
-    <li>ابدأ بالمركّزة، وارجع للشاملة لو محتاج تفاصيل ملف معيّن.</li>
+    <li>ابدأ بالشرح بالرسومات عشان تفهم، وراجع بالمركّزة قبل الامتحان، وارجع للشاملة لو محتاج تفاصيل ملف معيّن.</li>
     <li>على الموبايل: زرار «المواد» فوق بيفتح القائمة، و«بحث» بيدوّر في كل الملخصات.</li>
     <li>المربعات البرتقالي «نقاط امتحانية»، و«تنبيه» مكان بتختلف فيه المصادر.</li>
   </ul>

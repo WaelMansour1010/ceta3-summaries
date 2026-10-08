@@ -168,9 +168,31 @@ mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 .
 .gist { font-size: 1.05rem; background: var(--accent-soft); border-radius: 10px; padding: .8rem 1.1rem; margin: 0 0 1.5rem; max-width: 48rem; }
 .prose blockquote.note { color: var(--ink); background: var(--exam-soft); border-inline-start: 3px solid var(--exam); border-radius: 0 8px 8px 0; padding: .45rem .9rem; font-size: .93rem; }
 .prose blockquote.note p { margin: .2rem 0; }
+.legend.key-l { background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
 .legend.note-l { background: var(--exam-soft); color: var(--exam); border: 1px solid color-mix(in srgb, var(--exam) 40%, transparent); }
 ol.topics { columns: 2 14rem; column-gap: 2rem; padding-inline-start: 1.4rem; }
 ol.topics li { break-inside: avoid; }
+
+/* diagrams (explained version) */
+.fig { margin: 1.4rem 0; padding: .9rem .9rem .7rem; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); max-width: 46rem; }
+.fig .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13.5rem), 1fr)); gap: .8rem; }
+.fig svg.dg { display: block; width: 100%; height: auto; direction: ltr; }
+.fig figcaption { font-size: .88rem; color: var(--muted); margin-top: .5rem; line-height: 1.7; }
+.dg text { font-family: var(--f-body); font-size: 13px; fill: var(--ink); }
+.dg .t.m { fill: var(--muted); } .dg .t.a { fill: var(--accent); } .dg .t.d { fill: var(--unsure); } .dg .t.e { fill: var(--exam); }
+.dg .t.s { font-size: 11px; } .dg .t.b { font-weight: 700; } .dg .t.h { font-size: 15px; font-weight: 700; }
+.dg .price { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.dg .price.thin { stroke-width: 1.4; }
+.dg .up { stroke: var(--accent); } .dg .dn { stroke: var(--unsure); } .dg .ex { stroke: var(--exam); } .dg .mu { stroke: var(--muted); }
+.dg .lvl { fill: none; stroke: var(--muted); stroke-width: 1.1; stroke-dasharray: 5 4; }
+.dg .lvl.solid { stroke-dasharray: none; }
+.dg .grid { stroke: var(--line); stroke-width: 1; fill: none; }
+.dg .zone { fill: var(--accent-soft); stroke: none; } .dg .zone2 { fill: var(--exam-soft); stroke: none; } .dg .bad { fill: var(--unsure-soft); stroke: none; }
+.dg .box { fill: none; stroke: var(--line); }
+.dg .pt { fill: var(--ink); } .dg .pt.a { fill: var(--accent); } .dg .pt.d { fill: var(--unsure); } .dg .pt.e { fill: var(--exam); }
+.dg .ah { fill: var(--muted); }
+.key { border-inline-start: 3px solid var(--accent); padding: .3rem .9rem; margin: 1rem 0; background: var(--accent-soft); border-radius: 0 8px 8px 0; }
+@media print { .fig { break-inside: avoid; } }
 
 /* image viewer */
 .lb { position: fixed; inset: 0; z-index: 50; background: var(--viewer); color: var(--viewer-ink); display: flex; flex-direction: column; direction: rtl; }
@@ -285,7 +307,7 @@ ol.topics li { break-inside: avoid; }
 
 <p class="lede">ملخصات كل ملفات فولدر <code>F:\Ceta3</code> لشهادة <b>CETA / CFTe</b> في التحليل الفني:
 ملاحظات بخط اليد، والكتيّب الدراسي للمستوى الثالث، ومذكرات مطبوعة، وثلاث امتحانات. اختر مادة من القائمة أو ابحث بأي كلمة.</p>
-<p class="lede">فيه كمان <a href="concise.html">النسخة المركّزة</a>: كل موضوع في شرح واحد من غير تكرار. والـ PDF للتحميل: <a href="ceta3-full.pdf">الشاملة</a> · <a href="ceta3-concise.pdf">المركّزة</a>.</p>
+<p class="lede">فيه كمان <a href="explained.html">الشرح بالرسومات</a> و<a href="concise.html">النسخة المركّزة</a>. والـ PDF للتحميل: <a href="ceta3-full.pdf">الشاملة</a> · <a href="ceta3-concise.pdf">المركّزة</a> · <a href="ceta3-explained.pdf">الشرح بالرسومات</a>.</p>
 <div class="stats">
   <div><b>59</b><span>صفحة خط يد</span></div>
   <div><b>8</b><span>صور فريدة</span></div>
@@ -325,18 +347,24 @@ ol.topics li { break-inside: avoid; }
 <li>أنواع الموجات: Motive و Corrective.</li>
 </ul>
 <h3>شجرة التصنيف (<a class="ref" data-img="elliott_01" href="img/elliott_01.jpg" rel="noopener" target="_blank">ص1</a>)</h3>
-<p><strong>الموجة الدافعة (Motive Wave):</strong>
-- <strong>Impulse</strong> (الدافعة / القوية — مكتوبة "القوية"؟ بالأحمر)
-- <strong>Diagonal</strong> (القطرية/المنحرفة — مكتوبة "المنحنية؟")
-  - Leading Diagonal (قطرية قائدة)
-  - Ending Diagonal (قطرية نهائية)</p>
-<p><strong>الموجة التصحيحية (Corrective Wave):</strong>
-- <strong>حادة (Sharp):</strong> Zigzag
-- <strong>عرضية (Sideways):</strong>
-  - <strong>Flats:</strong> Regular / Expanding (Expanded) / Running
-  - <strong>Triangles:</strong>
-    - Contracting (متقلص): Ascending / Descending / Symmetrical — وكل منها إما Regular أو Running
-    - Expanding (متسع)</p>
+<p><strong>الموجة الدافعة (Motive Wave):</strong></p>
+<ul>
+<li><strong>Impulse</strong> (الدافعة / القوية — مكتوبة "القوية"؟ بالأحمر)</li>
+<li><strong>Diagonal</strong> (القطرية/المنحرفة — مكتوبة "المنحنية؟")</li>
+<li>Leading Diagonal (قطرية قائدة)</li>
+<li>Ending Diagonal (قطرية نهائية)</li>
+</ul>
+<p><strong>الموجة التصحيحية (Corrective Wave):</strong></p>
+<ul>
+<li><strong>حادة (Sharp):</strong> Zigzag</li>
+<li><strong>عرضية (Sideways):</strong></li>
+<li><strong>Flats:</strong> Regular / Expanding (Expanded) / Running</li>
+<li><strong>Triangles:</strong><ul>
+<li>Contracting (متقلص): Ascending / Descending / Symmetrical — وكل منها إما Regular أو Running</li>
+<li>Expanding (متسع)</li>
+</ul>
+</li>
+</ul>
 <h3>التوليفات التصحيحية (Corrective Combinations) — <a class="ref" data-img="elliott_02" href="img/elliott_02.jpg" rel="noopener" target="_blank">ص2</a></h3>
 <ul>
 <li>Double and Triple Zigzag</li>
@@ -399,11 +427,25 @@ ol.topics li { break-inside: avoid; }
 </tr>
 </tbody>
 </table></div>
-<p><strong>قواعد:</strong>
-- * يحدث فيها تداخل (Overlap).
-- * لا تأتي في الموجة 3 إطلاقًا.
-- Leading Diagonal ممكن تأتي في الموجة 1 فتصبح (قطرية قائدة)، و Ending Diagonal ممكن تأتي في الموجة 5 فتصبح (قطرية نهائية).
-- * أي أنه يأتي في البداية أو النهاية فقط (1 or 5).</p>
+<p><strong>قواعد:</strong></p>
+<ul>
+<li>
+<ul>
+<li>يحدث فيها تداخل (Overlap).</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>لا تأتي في الموجة 3 إطلاقًا.</li>
+</ul>
+</li>
+<li>Leading Diagonal ممكن تأتي في الموجة 1 فتصبح (قطرية قائدة)، و Ending Diagonal ممكن تأتي في الموجة 5 فتصبح (قطرية نهائية).</li>
+<li>
+<ul>
+<li>أي أنه يأتي في البداية أو النهاية فقط (1 or 5).</li>
+</ul>
+</li>
+</ul>
 <h3>أشكال الـ Leading Diagonal (<a class="ref" data-img="elliott_03" href="img/elliott_03.jpg" rel="noopener" target="_blank">ص3</a>)</h3>
 <ul>
 <li><strong>Converging (متقارب)</strong> — مكتوب "مخروط/مضغوط؟": 5,3,5,3,5 ← شكله <strong>وتد (Wedge)</strong> "مغلق".</li>
@@ -957,19 +999,25 @@ ol.topics li { break-inside: avoid; }
   2. <strong>Dynamic Support and Resistance Zone</strong>
   3. <strong>Measure of the Direction's Strength</strong> (Strong or Weak Trend)</li>
 </ul>
-<p><strong>أولًا — Trading Set-Up (<a class="ref" data-img="ichimoku_05" href="img/ichimoku_05.jpg" rel="noopener" target="_blank">ص5</a>):</strong> "At a glance" — الوظيفة الأساسية للـ Cloud هي أن تعطيك انطباعًا عن الترند القائم إيجابي أم سلبي أم عرضي.
-- الأسعار أعلى جسم السحابة ⇐ Up-Trend، و Span A Above Span B.
-- والعكس ⇐ Down Trend.</p>
-<p><strong>ثانيًا — دعم ومقاومة (<a class="ref" data-img="ichimoku_05" href="img/ichimoku_05.jpg" rel="noopener" target="_blank">ص5</a>):</strong>
-- في حالة اعتبار السحابة كمستوى للدعم والمقاومة ننظر إلى مدى سُمك السحابة أو رفعها؛ فكلما كانت سميكة كان مستوى الدعم مثلًا (لو كنا صاعدين) أقوى.
-- فوق السحابة تكون "Bullish" ← تعمل كدعم.
-- تحت السحابة تكون "Bearish" ← تعمل كمقاومة.
-- يُفضّل التداول خارج جسم السحابة، وخصوصًا لو كانت سميكة.</p>
-<p><strong>ثالثًا — القوة Strength (Strong or Weak Trend) (<a class="ref" data-img="ichimoku_05" href="img/ichimoku_05.jpg" rel="noopener" target="_blank">ص5</a>):</strong>
-- هنا تنشأ العلاقة بين Span A و Span B؛ حيث إن حركة Span A أسرع وأكبر من Span B الذي يتحرك ببطء. وبسبب Span A فكلما اتسعت السحابة فهذا دليل على قوة الزخم (Momentum) للترند، ويكون الصعود مثلًا لو كنا صاعدين أو العكس.
-- <strong>حالة استثنائية (1):</strong> تكوّن جسم السحابة "Thin" (رفيع) لو كنا نتداول مدة 26 جلسة في Low Range.
-- <strong>حالة استثنائية (2) — <a class="ref" data-img="ichimoku_06" href="img/ichimoku_06.jpg" rel="noopener" target="_blank">ص6</a>:</strong> في حالة مثلًا صعود قوي "Sharp Move" تبدأ السحابة تلاحق الأسعار ولكنها رفيعة وليست سميكة، أو بمعنى أن الأسعار تتسع "Volatility &amp; Acceleration" قوية في الأسعار، فتبدأ السحابة صاعدة كخط رفيع ثم تبدأ في أن تكون عريضة أو متماسكة، وهذا يدل على أنه قد يكون هناك تأكيد في هذا الاتجاه القائم.
-- التغير القوي والسريع الذي يحدث في Time Frame (9 &amp; 26 &amp; 52) لمكونات النظام هو الذي يسبب التغير في جسم الـ Cloud.</p>
+<p><strong>أولًا — Trading Set-Up (<a class="ref" data-img="ichimoku_05" href="img/ichimoku_05.jpg" rel="noopener" target="_blank">ص5</a>):</strong> "At a glance" — الوظيفة الأساسية للـ Cloud هي أن تعطيك انطباعًا عن الترند القائم إيجابي أم سلبي أم عرضي.</p>
+<ul>
+<li>الأسعار أعلى جسم السحابة ⇐ Up-Trend، و Span A Above Span B.</li>
+<li>والعكس ⇐ Down Trend.</li>
+</ul>
+<p><strong>ثانيًا — دعم ومقاومة (<a class="ref" data-img="ichimoku_05" href="img/ichimoku_05.jpg" rel="noopener" target="_blank">ص5</a>):</strong></p>
+<ul>
+<li>في حالة اعتبار السحابة كمستوى للدعم والمقاومة ننظر إلى مدى سُمك السحابة أو رفعها؛ فكلما كانت سميكة كان مستوى الدعم مثلًا (لو كنا صاعدين) أقوى.</li>
+<li>فوق السحابة تكون "Bullish" ← تعمل كدعم.</li>
+<li>تحت السحابة تكون "Bearish" ← تعمل كمقاومة.</li>
+<li>يُفضّل التداول خارج جسم السحابة، وخصوصًا لو كانت سميكة.</li>
+</ul>
+<p><strong>ثالثًا — القوة Strength (Strong or Weak Trend) (<a class="ref" data-img="ichimoku_05" href="img/ichimoku_05.jpg" rel="noopener" target="_blank">ص5</a>):</strong></p>
+<ul>
+<li>هنا تنشأ العلاقة بين Span A و Span B؛ حيث إن حركة Span A أسرع وأكبر من Span B الذي يتحرك ببطء. وبسبب Span A فكلما اتسعت السحابة فهذا دليل على قوة الزخم (Momentum) للترند، ويكون الصعود مثلًا لو كنا صاعدين أو العكس.</li>
+<li><strong>حالة استثنائية (1):</strong> تكوّن جسم السحابة "Thin" (رفيع) لو كنا نتداول مدة 26 جلسة في Low Range.</li>
+<li><strong>حالة استثنائية (2) — <a class="ref" data-img="ichimoku_06" href="img/ichimoku_06.jpg" rel="noopener" target="_blank">ص6</a>:</strong> في حالة مثلًا صعود قوي "Sharp Move" تبدأ السحابة تلاحق الأسعار ولكنها رفيعة وليست سميكة، أو بمعنى أن الأسعار تتسع "Volatility &amp; Acceleration" قوية في الأسعار، فتبدأ السحابة صاعدة كخط رفيع ثم تبدأ في أن تكون عريضة أو متماسكة، وهذا يدل على أنه قد يكون هناك تأكيد في هذا الاتجاه القائم.</li>
+<li>التغير القوي والسريع الذي يحدث في Time Frame (9 &amp; 26 &amp; 52) لمكونات النظام هو الذي يسبب التغير في جسم الـ Cloud.</li>
+</ul>
 <h3>(5) وظائف Lagging Span (Chikou) — <a class="ref" data-img="ichimoku_06" href="img/ichimoku_06.jpg" rel="noopener" target="_blank">ص6</a></h3>
 <ul>
 <li>يعمل Confirm لكل الإشارات السابقة، ويكون أعلى الـ Cloud (في الإيجابي) والعكس في السلبي.</li>
@@ -2038,24 +2086,32 @@ ol.topics li { break-inside: avoid; }
 <li>We use <strong>trigger line = 9 day MA</strong> (كما في MACD).</li>
 </ul>
 <h2 id="formulas2-h7">(8) Directional Movement Index &amp; ADX (<a class="ref" data-img="f2_3" href="img/f2_3.jpg" rel="noopener" target="_blank">صورة 3</a>)</h2>
-<p><strong>[1] حساب الحركة الاتجاهية (Directional Movement):</strong>
-- <strong>+DM = H today − H yesterday</strong> (عندما يكون الامتداد العلوي هو الأكبر).
-- <strong>−DM = Low yesterday − Low today</strong> (عندما يكون الامتداد السفلي هو الأكبر).
-- <strong>DM = Zero</strong> عندما يكون يوم اليوم داخل مدى الأمس (Inside Day).
-- عند وجود امتداد للأعلى وللأسفل معًا: <strong>Take the largest</strong> (نأخذ الأكبر).</p>
-<p><strong>[2] حساب المدى الحقيقي (True Range) = The largest of:</strong>
-- a. Distance between today's High &amp; today's Low.
-- b. Distance between today's High &amp; yesterday's Close.
-- c. Distance between today's Low &amp; yesterday's Close.
-- *** all values are positive (absolute values).</p>
-<p><strong>[3] حساب المؤشر الاتجاهي (Directional Indicator):</strong>
-- <strong>+DI = +DM / TR</strong> ← <strong>+DM(14) / TR(14)</strong>
-- <strong>−DI = −DM / TR</strong> ← <strong>−DM(14) / TR(14)</strong>
-- (مكتوب بجانبها "absolute").</p>
-<p><strong>[4] Last — نحسب ADX:</strong>
-- <strong>DX = [(DI diff) / (DI sum)] × 100</strong>
-- <strong>DX = [((+DI) − (−DI)) / ((+DI) + (−DI))] × 100</strong>
-- <strong>ADX = 14 days Moving Average of DX</strong></p>
+<p><strong>[1] حساب الحركة الاتجاهية (Directional Movement):</strong></p>
+<ul>
+<li><strong>+DM = H today − H yesterday</strong> (عندما يكون الامتداد العلوي هو الأكبر).</li>
+<li><strong>−DM = Low yesterday − Low today</strong> (عندما يكون الامتداد السفلي هو الأكبر).</li>
+<li><strong>DM = Zero</strong> عندما يكون يوم اليوم داخل مدى الأمس (Inside Day).</li>
+<li>عند وجود امتداد للأعلى وللأسفل معًا: <strong>Take the largest</strong> (نأخذ الأكبر).</li>
+</ul>
+<p><strong>[2] حساب المدى الحقيقي (True Range) = The largest of:</strong></p>
+<ul>
+<li>a. Distance between today's High &amp; today's Low.</li>
+<li>b. Distance between today's High &amp; yesterday's Close.</li>
+<li>c. Distance between today's Low &amp; yesterday's Close.</li>
+<li>*** all values are positive (absolute values).</li>
+</ul>
+<p><strong>[3] حساب المؤشر الاتجاهي (Directional Indicator):</strong></p>
+<ul>
+<li><strong>+DI = +DM / TR</strong> ← <strong>+DM(14) / TR(14)</strong></li>
+<li><strong>−DI = −DM / TR</strong> ← <strong>−DM(14) / TR(14)</strong></li>
+<li>(مكتوب بجانبها "absolute").</li>
+</ul>
+<p><strong>[4] Last — نحسب ADX:</strong></p>
+<ul>
+<li><strong>DX = [(DI diff) / (DI sum)] × 100</strong></li>
+<li><strong>DX = [((+DI) − (−DI)) / ((+DI) + (−DI))] × 100</strong></li>
+<li><strong>ADX = 14 days Moving Average of DX</strong></li>
+</ul>
 <h2 id="formulas2-h8">(9) Commodity Channel Index (CCI) (<a class="ref" data-img="f2_2" href="img/f2_2.jpg" rel="noopener" target="_blank">صورة 2</a>)</h2>
 <ul>
 <li><strong>CCI = (Today's Typical Price − Today's 11 days Moving Average for Typical Price) / (0.015 × Today's Mean Deviation)</strong></li>
@@ -3338,12 +3394,14 @@ ol.topics li { break-inside: avoid; }
 </tr>
 </tbody>
 </table></div>
-<p><strong>تناقضات حقيقية:</strong>
-- <strong>Shakeout:</strong> اليد "ما دون ذلك <strong>إشارة خاطئة</strong>"؛ المكتوبة "ما دون ذلك يُعد <strong>إشارة هامة (تحذير)</strong>" <a class="ref" data-img="lec_34" href="img/lec_34.jpg" rel="noopener" target="_blank">ص34</a>.
-- <strong>Long Tail:</strong> اليد "Stop Loss قريب جدًا من الـ Line <strong>وهي بعيدة عن Target</strong>"؛ المكتوبة "قريبًا جدًا من الـ line، <strong>وهي بدورها الـ Target</strong>" <a class="ref" data-img="lec_33" href="img/lec_33.jpg" rel="noopener" target="_blank">ص33</a>.
-- <strong>Adjust Line:</strong> اليد "كسرنا الـ Line، <strong>نبدأ بكسر Support</strong>…"؛ المكتوبة "وكسرنا الـ line <strong>بدون كسر الـ Support</strong>؛ لأنه في حالة حدوث كسر الـ Support ثم كسر الـ line هنا يعني تغيير الـ Mode" <a class="ref" data-img="lec_30" href="img/lec_30.jpg" rel="noopener" target="_blank">ص30</a>.
-- <strong>مثال Vertical Count:</strong> اليد 5 × 3 × 1؛ المكتوبة 4 × 3 × 1.
-<strong>فرق أصغر:</strong> اليد تجعل Bearish Resistance Line تُرسم بعد Double Bottom Break؛ المكتوبة تربط DBB بـ "Minor line" (مع بقاء عنوان الرسم "Bearish Resistance Line (Main Line) — Sell Mode").</p>
+<p><strong>تناقضات حقيقية:</strong></p>
+<ul>
+<li><strong>Shakeout:</strong> اليد "ما دون ذلك <strong>إشارة خاطئة</strong>"؛ المكتوبة "ما دون ذلك يُعد <strong>إشارة هامة (تحذير)</strong>" <a class="ref" data-img="lec_34" href="img/lec_34.jpg" rel="noopener" target="_blank">ص34</a>.</li>
+<li><strong>Long Tail:</strong> اليد "Stop Loss قريب جدًا من الـ Line <strong>وهي بعيدة عن Target</strong>"؛ المكتوبة "قريبًا جدًا من الـ line، <strong>وهي بدورها الـ Target</strong>" <a class="ref" data-img="lec_33" href="img/lec_33.jpg" rel="noopener" target="_blank">ص33</a>.</li>
+<li><strong>Adjust Line:</strong> اليد "كسرنا الـ Line، <strong>نبدأ بكسر Support</strong>…"؛ المكتوبة "وكسرنا الـ line <strong>بدون كسر الـ Support</strong>؛ لأنه في حالة حدوث كسر الـ Support ثم كسر الـ line هنا يعني تغيير الـ Mode" <a class="ref" data-img="lec_30" href="img/lec_30.jpg" rel="noopener" target="_blank">ص30</a>.</li>
+<li><strong>مثال Vertical Count:</strong> اليد 5 × 3 × 1؛ المكتوبة 4 × 3 × 1.
+<strong>فرق أصغر:</strong> اليد تجعل Bearish Resistance Line تُرسم بعد Double Bottom Break؛ المكتوبة تربط DBB بـ "Minor line" (مع بقاء عنوان الرسم "Bearish Resistance Line (Main Line) — Sell Mode").</li>
+</ul>
 <h2 id="lecture-check-h5">5. hand_rs.md ↔ المحاضرة 6</h2>
 <div class="table-wrap"><table>
 <thead>
@@ -3678,23 +3736,31 @@ ol.topics li { break-inside: avoid; }
 <li><strong>ملاحظة المحرر:</strong> الكشكول يكتب النسبة بدون × 100؛ معظم المنصات تضرب في 100 فيتحرك TSI بين −100 و+100.</li>
 </ul>
 <h2 id="level2-eq-h7">8. مؤشر الحركة الاتجاهية و ADX (Directional Movement Index) — <a class="ref" data-img="eq2_04" href="img/eq2_04.jpg" rel="noopener" target="_blank">ص4</a>، <a class="ref" data-img="eq2_05" href="img/eq2_05.jpg" rel="noopener" target="_blank">ص5</a> · الأصل <a class="ref" data-img="f2_3" href="img/f2_3.jpg" rel="noopener" target="_blank">صورة 3</a></h2>
-<p><strong>الخطوة 1 — الحركة الاتجاهية (DM):</strong>
-- +DM = High اليوم − High أمس (لو قمة اليوم فوق قمة أمس).
-- −DM = Low أمس − Low اليوم (لو قاع اليوم تحت قاع أمس).
-- لو اليوم داخل مدى أمس (Inside day): DM = صفر.
-- لو اليوم Outside day (صاعد وهابط): نأخذ الأكبر من الاتنين.</p>
-<p><strong>الخطوة 2 — المدى الحقيقي (True Range) = الأكبر من:</strong>
-- a. المسافة بين High اليوم و Low اليوم.
-- b. المسافة بين High اليوم و Close أمس.
-- c. المسافة بين Low اليوم و Close أمس.
-- كل القيم موجبة (قيم مطلقة).</p>
-<p><strong>الخطوة 3 — المؤشر الاتجاهي (DI):</strong>
-- +DI = +DM ÷ TR ← +DM(14) ÷ TR(14).
-- −DI = −DM ÷ TR ← −DM(14) ÷ TR(14).</p>
-<p><strong>الخطوة 4 (الأخيرة) — ADX:</strong>
-- DX = (فرق الـ DI ÷ مجموع الـ DI) × 100 = |(+DI) − (−DI)| ÷ ((+DI) + (−DI)) × 100.
-- ADX = متوسط متحرك 14 يوم لـ DX.
-- <strong>ملاحظة المحرر:</strong> فرق الـ DI بالقيمة المطلقة، فـ DX و ADX دايمًا بين 0 و100. و+DM(14) و−DM(14) و TR(14) هي مجاميع 14 يوم المُنعَّمة.</p>
+<p><strong>الخطوة 1 — الحركة الاتجاهية (DM):</strong></p>
+<ul>
+<li>+DM = High اليوم − High أمس (لو قمة اليوم فوق قمة أمس).</li>
+<li>−DM = Low أمس − Low اليوم (لو قاع اليوم تحت قاع أمس).</li>
+<li>لو اليوم داخل مدى أمس (Inside day): DM = صفر.</li>
+<li>لو اليوم Outside day (صاعد وهابط): نأخذ الأكبر من الاتنين.</li>
+</ul>
+<p><strong>الخطوة 2 — المدى الحقيقي (True Range) = الأكبر من:</strong></p>
+<ul>
+<li>a. المسافة بين High اليوم و Low اليوم.</li>
+<li>b. المسافة بين High اليوم و Close أمس.</li>
+<li>c. المسافة بين Low اليوم و Close أمس.</li>
+<li>كل القيم موجبة (قيم مطلقة).</li>
+</ul>
+<p><strong>الخطوة 3 — المؤشر الاتجاهي (DI):</strong></p>
+<ul>
+<li>+DI = +DM ÷ TR ← +DM(14) ÷ TR(14).</li>
+<li>−DI = −DM ÷ TR ← −DM(14) ÷ TR(14).</li>
+</ul>
+<p><strong>الخطوة 4 (الأخيرة) — ADX:</strong></p>
+<ul>
+<li>DX = (فرق الـ DI ÷ مجموع الـ DI) × 100 = |(+DI) − (−DI)| ÷ ((+DI) + (−DI)) × 100.</li>
+<li>ADX = متوسط متحرك 14 يوم لـ DX.</li>
+<li><strong>ملاحظة المحرر:</strong> فرق الـ DI بالقيمة المطلقة، فـ DX و ADX دايمًا بين 0 و100. و+DM(14) و−DM(14) و TR(14) هي مجاميع 14 يوم المُنعَّمة.</li>
+</ul>
 <h2 id="level2-eq-h8">9. Commodity Channel Index (CCI) — <a class="ref" data-img="eq2_05" href="img/eq2_05.jpg" rel="noopener" target="_blank">ص5</a> · الأصل <a class="ref" data-img="f2_2" href="img/f2_2.jpg" rel="noopener" target="_blank">صورة 2</a></h2>
 <ul>
 <li>CCI = (Typical Price اليوم − متوسط متحرك 11 يوم للـ Typical Price اليوم) ÷ (0.015 × Mean deviation اليوم).</li>
@@ -3703,16 +3769,18 @@ ol.topics li { break-inside: avoid; }
 <li><strong>ملاحظة المحرر:</strong> الانحرافات بالقيمة المطلقة (مكتوبة في الكشكول من غير | |). الكشكول يستخدم فترة 11 يوم؛ الافتراضي الشائع 20 يوم.</li>
 </ul>
 <h2 id="level2-eq-h9">10. Bollinger Bands — <a class="ref" data-img="eq2_06" href="img/eq2_06.jpg" rel="noopener" target="_blank">ص6</a></h2>
-<p>خطوات الحساب (بالرجوع لملف Excel):
-1. نحسب المتوسط (X̄).
-2. X − X̄ (X للأسعار، X̄ للمتوسط).
-3. (X − X̄)².
-4. نجمع (X − X̄)².
-5. المجموع ÷ n ⇐ التباين (Variance).
-6. التباين = متوسط مربع الانحرافات عن المتوسط.
-7. الانحراف المعياري (SD) = الجذر التربيعي للتباين.
-8. للحصول على 2 انحراف معياري نضرب SD × 2.
-9. نضيف 2 SD للمتوسط ونطرح 2 SD من المتوسط.</p>
+<p>خطوات الحساب (بالرجوع لملف Excel):</p>
+<ol>
+<li>نحسب المتوسط (X̄).</li>
+<li>X − X̄ (X للأسعار، X̄ للمتوسط).</li>
+<li>(X − X̄)².</li>
+<li>نجمع (X − X̄)².</li>
+<li>المجموع ÷ n ⇐ التباين (Variance).</li>
+<li>التباين = متوسط مربع الانحرافات عن المتوسط.</li>
+<li>الانحراف المعياري (SD) = الجذر التربيعي للتباين.</li>
+<li>للحصول على 2 انحراف معياري نضرب SD × 2.</li>
+<li>نضيف 2 SD للمتوسط ونطرح 2 SD من المتوسط.</li>
+</ol>
 <ul>
 <li>SD = √(Σ (X − X̄)² ÷ n).</li>
 <li>Upper Band = Mean + 2 SD | Middle Band = Mean | Lower Band = Mean − 2 SD.</li>
@@ -3877,14 +3945,16 @@ Sample size              n = (Z · σ / E)²   → round UP
 Test statistic, t        t = (x̄ − μ₀) / (s/√n)
 Test statistic, Z        Z = (x̄ − μ₀) / (σ/√n)
 </code></pre>
-<p><strong>نقاط امتحانية (الجزء الأول):</strong>
-1. σ معطاة ⇒ Z؛ s فقط مع n صغيرة ومجتمع طبيعي ⇒ t.
-2. هل المطلوب مدى (CI) أم حكم (hypothesis test)؟ الحساب واحد تقريبًا والصياغة مختلفة.
-3. لا تقسم α على 2 إلا في اختبار الطرفين.
-4. حجم العيّنة يُقرَّب لأعلى دائمًا.
-5. أنهِ اختبار الفرضيات بالقرار الاقتصادي (له درجات مخصصة).
-6. مصطلحات ملتبسة: Sampling error (فجوة عشوائية حتمية) ≠ bias (تشويه منهجي من طريقة بناء العيّنة)؛ Survivorship (الكيانات خاطئة) ≠ Look-ahead (تواريخ المعلومات خاطئة)؛ Significance level α ↔ Confidence level 1 − α (5% ↔ 95%)؛ Power = 1 − β ≠ Confidence = 1 − α.
-7. الالتواء من ترتيب mean/median/mode (سؤال بدرجة واحدة معتاد).</p>
+<p><strong>نقاط امتحانية (الجزء الأول):</strong></p>
+<ol>
+<li>σ معطاة ⇒ Z؛ s فقط مع n صغيرة ومجتمع طبيعي ⇒ t.</li>
+<li>هل المطلوب مدى (CI) أم حكم (hypothesis test)؟ الحساب واحد تقريبًا والصياغة مختلفة.</li>
+<li>لا تقسم α على 2 إلا في اختبار الطرفين.</li>
+<li>حجم العيّنة يُقرَّب لأعلى دائمًا.</li>
+<li>أنهِ اختبار الفرضيات بالقرار الاقتصادي (له درجات مخصصة).</li>
+<li>مصطلحات ملتبسة: Sampling error (فجوة عشوائية حتمية) ≠ bias (تشويه منهجي من طريقة بناء العيّنة)؛ Survivorship (الكيانات خاطئة) ≠ Look-ahead (تواريخ المعلومات خاطئة)؛ Significance level α ↔ Confidence level 1 − α (5% ↔ 95%)؛ Power = 1 − β ≠ Confidence = 1 − α.</li>
+<li>الالتواء من ترتيب mean/median/mode (سؤال بدرجة واحدة معتاد).</li>
+</ol>
 </div><hr/></div><nav class="pager" aria-label="التنقل بين الأقسام"><a class="pg prev" href="#book-intro" data-go="book-intro"><small>السابق</small>عن الكتيّب</a><a class="pg next" href="#book-2" data-go="book-2"><small>التالي</small>Point &amp; Figure</a></nav></section>
 <section class="sec" id="sec-book-2" data-id="book-2" data-title="Point &amp; Figure">
 <header class="sec-head"><p class="eyebrow">الكتيّب الدراسي — المستوى الثالث</p><h1>الجزء الثاني — Point &amp; Figure (P&amp;F)</h1>
@@ -3964,14 +4034,16 @@ Downside target = count level − (columns in the count row × box size)
 Horizontal (3-box) target = (columns across the base) × reversal × box size ± base of the formation
 Horizontal (1-box) target = (columns in the count row) × box size ± the level of the count row
 </code></pre>
-<p><strong>نقاط امتحانية (الجزء الثاني):</strong>
-- قائمة البناء: اذكر box size × reversal ونوع البيانات؛ أول حركة بمربع كامل تحدد X أو O؛ قارن بآخر مربع مرسوم؛ املأ كل مربع بيني؛ على 1-box افحص one-step-back قبل فتح عمود.
-- P&amp;F بلا زمن وبلا حجم وبلا فجوات (اذكرها عند المقارنة بالـ bar/candle).
-- خطوط 45 درجة موضوعية.
-- 1-box: عدّات أفقية فقط، لا رأسية أبدًا.
-- Triple top with higher lows &gt; triple top &gt; double top.
-- Catapult = كسر قمة ثلاثية ثم كسر قمة مزدوجة (إشارتان).
-- رسم 1-box خطأً يضاعف عرض النموذج والعدّة.</p>
+<p><strong>نقاط امتحانية (الجزء الثاني):</strong></p>
+<ul>
+<li>قائمة البناء: اذكر box size × reversal ونوع البيانات؛ أول حركة بمربع كامل تحدد X أو O؛ قارن بآخر مربع مرسوم؛ املأ كل مربع بيني؛ على 1-box افحص one-step-back قبل فتح عمود.</li>
+<li>P&amp;F بلا زمن وبلا حجم وبلا فجوات (اذكرها عند المقارنة بالـ bar/candle).</li>
+<li>خطوط 45 درجة موضوعية.</li>
+<li>1-box: عدّات أفقية فقط، لا رأسية أبدًا.</li>
+<li>Triple top with higher lows &gt; triple top &gt; double top.</li>
+<li>Catapult = كسر قمة ثلاثية ثم كسر قمة مزدوجة (إشارتان).</li>
+<li>رسم 1-box خطأً يضاعف عرض النموذج والعدّة.</li>
+</ul>
 </div><hr/></div><nav class="pager" aria-label="التنقل بين الأقسام"><a class="pg prev" href="#book-1" data-go="book-1"><small>السابق</small>الأساليب الإحصائية</a><a class="pg next" href="#book-3" data-go="book-3"><small>التالي</small>Ichimoku Kinko Hyo</a></nav></section>
 <section class="sec" id="sec-book-3" data-id="book-3" data-title="Ichimoku Kinko Hyo">
 <header class="sec-head"><p class="eyebrow">الكتيّب الدراسي — المستوى الثالث</p><h1>الجزء الثالث — Ichimoku Kinko Hyo (一目均衡表 «نظرة واحدة على شارت التوازن»)</h1>
@@ -4136,14 +4208,16 @@ NT = C + (C − A)     قاع التصحيح + المسافة من الأصل إ
 <li>AmiBroker (م. شاكر): Conversion 9 <code>CL = (HHV(H,9) + LLV(L,9)) / 2</code> أزرق؛ Base 26 <code>BL = (HHV(H,26) + LLV(L,26)) / 2</code> أحمر؛ <code>LSA = (CL + BL) / 2</code> أخضر فاتح؛ Leading B 52 <code>LSB = (HHV(H,52) + LLV(L,52)) / 2</code> وردي؛ إزاحة +26 للـ Leading، −26 للـ Lagging. السحابة <code>PlotOHLC(LSA, LSA, LSB, LSB, "Cloud", …, styleCloud)</code>.</li>
 <li>قراءة IFTA المطلوبة لـ CFTe II: IFTA Journal المجلد 11، الملحق E، Primer on Ichimoku — Yukitoshi Higashino, MFTA، ص 91–122. كتب: David Linton (Cloud Charts)، Nicole Elliott، Manesh Patel.</li>
 </ul>
-<p><strong>نقاط امتحانية (الجزء الثالث):</strong>
-1. اكتب المعادلات الخمس من الذاكرة مع الإزاحة الصحيحة.
-2. HHV/LLV (لا الإغلاقات) تبني كل خط.
-3. انقل قاعدة الـ Kijun-Sen حرفيًا.
-4. صُغ الاستراتيجيات الخمس بصيغة setup / signal / stop / re-entry.
-5. احسب V وN وE وNT من نقاط تأرجح مسمّاة.
-6. الأرقام 9 و17 و26 واشتقاق 33 و42 و65 و76.
-7. الإسقاط السعري يجب أن يتطابق مع الإسقاط الزمني.</p>
+<p><strong>نقاط امتحانية (الجزء الثالث):</strong></p>
+<ol>
+<li>اكتب المعادلات الخمس من الذاكرة مع الإزاحة الصحيحة.</li>
+<li>HHV/LLV (لا الإغلاقات) تبني كل خط.</li>
+<li>انقل قاعدة الـ Kijun-Sen حرفيًا.</li>
+<li>صُغ الاستراتيجيات الخمس بصيغة setup / signal / stop / re-entry.</li>
+<li>احسب V وN وE وNT من نقاط تأرجح مسمّاة.</li>
+<li>الأرقام 9 و17 و26 واشتقاق 33 و42 و65 و76.</li>
+<li>الإسقاط السعري يجب أن يتطابق مع الإسقاط الزمني.</li>
+</ol>
 <hr/></div><nav class="pager" aria-label="التنقل بين الأقسام"><a class="pg prev" href="#book-2" data-go="book-2"><small>السابق</small>Point &amp; Figure</a><a class="pg next" href="#book-4" data-go="book-4"><small>التالي</small>Kagi Charts</a></nav></section>
 <section class="sec" id="sec-book-4" data-id="book-4" data-title="Kagi Charts">
 <header class="sec-head"><p class="eyebrow">الكتيّب الدراسي — المستوى الثالث</p><h1>الجزء الرابع — Kagi Charts</h1>
@@ -4218,14 +4292,16 @@ NT = C + (C − A)     قاع التصحيح + المسافة من الأصل إ
 </tr>
 </tbody>
 </table></div>
-<p><strong>نقاط امتحانية (الجزء الرابع):</strong>
-1. السُمك يتغير فقط عند كسر الكتف أو الخصر السابق.
-2. Kagi = أسعار إغلاق فقط وبلا محور زمني.
-3. مقدار الانعكاس بالنسبة: 3% قصير، 5% طويل.
-4. قواعد البدء الثلاث.
-5. Three Buddha = رأس وكتفان؛ Double window = خصران فوق كتف (قاع) أو كتفان تحت خصر (قمة).
-6. تسع جلسات تسجيل ⇒ ابحث عن انعكاس؛ عبارة «ليس بالضرورة متتالية» هي ما يبحث عنه المصحح (تعدّ مرات تكوّن كتف أعلى جديد لا الشموع).
-7. خطوط اتجاه Kagi تعطي الاتجاه فقط ولا تعطي أهدافًا.</p>
+<p><strong>نقاط امتحانية (الجزء الرابع):</strong></p>
+<ol>
+<li>السُمك يتغير فقط عند كسر الكتف أو الخصر السابق.</li>
+<li>Kagi = أسعار إغلاق فقط وبلا محور زمني.</li>
+<li>مقدار الانعكاس بالنسبة: 3% قصير، 5% طويل.</li>
+<li>قواعد البدء الثلاث.</li>
+<li>Three Buddha = رأس وكتفان؛ Double window = خصران فوق كتف (قاع) أو كتفان تحت خصر (قمة).</li>
+<li>تسع جلسات تسجيل ⇒ ابحث عن انعكاس؛ عبارة «ليس بالضرورة متتالية» هي ما يبحث عنه المصحح (تعدّ مرات تكوّن كتف أعلى جديد لا الشموع).</li>
+<li>خطوط اتجاه Kagi تعطي الاتجاه فقط ولا تعطي أهدافًا.</li>
+</ol>
 <hr/></div><nav class="pager" aria-label="التنقل بين الأقسام"><a class="pg prev" href="#book-3" data-go="book-3"><small>السابق</small>Ichimoku Kinko Hyo</a><a class="pg next" href="#book-5" data-go="book-5"><small>التالي</small>Renko Charts</a></nav></section>
 <section class="sec" id="sec-book-5" data-id="book-5" data-title="Renko Charts">
 <header class="sec-head"><p class="eyebrow">الكتيّب الدراسي — المستوى الثالث</p><h1>الجزء الخامس — Renko Charts</h1>
@@ -4512,14 +4588,16 @@ Normalized:  RS = (Entity 1 / Base value of Entity 1) / (Entity 2 / Base value o
 </tr>
 </tbody>
 </table></div>
-<p><strong>نقاط امتحانية (الجزء السابع):</strong>
-- علامات التأكيد الست: ارتفاع الحجم؛ ADX لتشبع؛ شمعة انعكاسية؛ exhaustion gap؛ divergence (MACD)؛ volume profile.
-- العلاقة بين retracement وextension في الطريقة الأولى <strong>عكسية</strong>.
-- extensions من حركة واحدة بأسلوب Elliott.
-- الاشتقاقات (0.786 = √0.618 … 2.618 = 1 + 1.618) — سؤال «من أين جاءت 0.886؟».
-- شمعة الانعطاف = أول شمعة تختبر النسبة، والأهداف تُقاس إلى حدها الأقصى.
-- تداخل الطرق = منطقة قوية؛ تجاهل إحداها سبب فشل المثالين.
-- قاع مزدوج بقاع ثانٍ أعلى = الطريقة الأولى؛ قمة مزدوجة بقمة ثانية أدنى = مثله بالعكس.</p>
+<p><strong>نقاط امتحانية (الجزء السابع):</strong></p>
+<ul>
+<li>علامات التأكيد الست: ارتفاع الحجم؛ ADX لتشبع؛ شمعة انعكاسية؛ exhaustion gap؛ divergence (MACD)؛ volume profile.</li>
+<li>العلاقة بين retracement وextension في الطريقة الأولى <strong>عكسية</strong>.</li>
+<li>extensions من حركة واحدة بأسلوب Elliott.</li>
+<li>الاشتقاقات (0.786 = √0.618 … 2.618 = 1 + 1.618) — سؤال «من أين جاءت 0.886؟».</li>
+<li>شمعة الانعطاف = أول شمعة تختبر النسبة، والأهداف تُقاس إلى حدها الأقصى.</li>
+<li>تداخل الطرق = منطقة قوية؛ تجاهل إحداها سبب فشل المثالين.</li>
+<li>قاع مزدوج بقاع ثانٍ أعلى = الطريقة الأولى؛ قمة مزدوجة بقمة ثانية أدنى = مثله بالعكس.</li>
+</ul>
 </div><hr/></div><nav class="pager" aria-label="التنقل بين الأقسام"><a class="pg prev" href="#book-6" data-go="book-6"><small>السابق</small>Relative Strength / Relative Performance</a><a class="pg next" href="#book-8" data-go="book-8"><small>التالي</small>Time Cycles</a></nav></section>
 <section class="sec" id="sec-book-8" data-id="book-8" data-title="Time Cycles">
 <header class="sec-head"><p class="eyebrow">الكتيّب الدراسي — المستوى الثالث</p><h1>الجزء الثامن — Time Cycles</h1>
@@ -4670,14 +4748,16 @@ Phase difference the time between the troughs of two different waves
 <li>الأرقام: المتتالية الاسمية بالسنوات؛ تباين ±10–15%؛ طول الموجة ومقدارها يتباينان 15–20%؛ Hurst 23/2/75؛ معاملات المؤشرات والمظاريف = نصف طول الدورة مُوسَّطة 50% للخلف؛ ثلاث قنوات؛ مخاطرة/عائد 2 إلى 1.</li>
 <li>الملتبسات: Period ≠ frequency (لا تذكر دورة بالهيرتز)؛ Harmonicity (نسبة الأطوال) ≠ Synchronicity (توقيت القيعان)؛ الترجمة اليمنى صعودية واليسرى هبوطية.</li>
 </ul>
-<p><strong>نقاط امتحانية (الجزء الثامن) — قائمة تحقق لسؤال الدورات:</strong>
-1. اذكر الشرطين: التاريخ والتذبذب.
-2. اعزل دورة من قاع إلى قاع واختبرها أمامًا وخلفًا ومن المنتصف.
-3. بيانات أسبوعية/شهرية وتباين ±10–15%.
-4. سمِّ الدورة بأقرب مدة اسمية («74 ± 2 أسبوعًا، أي الدورة الاسمية 18 شهرًا»).
-5. أكّدها بمتوسط مُوسَّط بنصف طول الدورة أو price oscillator مداه الأطول = طول الدورة.
-6. اقرأ الترجمة للاتجاه.
-7. صُغ التوقع كصندوق تنبؤ لا تاريخ وسعر واحد.</p>
+<p><strong>نقاط امتحانية (الجزء الثامن) — قائمة تحقق لسؤال الدورات:</strong></p>
+<ol>
+<li>اذكر الشرطين: التاريخ والتذبذب.</li>
+<li>اعزل دورة من قاع إلى قاع واختبرها أمامًا وخلفًا ومن المنتصف.</li>
+<li>بيانات أسبوعية/شهرية وتباين ±10–15%.</li>
+<li>سمِّ الدورة بأقرب مدة اسمية («74 ± 2 أسبوعًا، أي الدورة الاسمية 18 شهرًا»).</li>
+<li>أكّدها بمتوسط مُوسَّط بنصف طول الدورة أو price oscillator مداه الأطول = طول الدورة.</li>
+<li>اقرأ الترجمة للاتجاه.</li>
+<li>صُغ التوقع كصندوق تنبؤ لا تاريخ وسعر واحد.</li>
+</ol>
 </div><hr/></div><nav class="pager" aria-label="التنقل بين الأقسام"><a class="pg prev" href="#book-7" data-go="book-7"><small>السابق</small>Fibonacci Retracement &amp; Extension</a><a class="pg next" href="#book-9" data-go="book-9"><small>التالي</small>الاقتصاد</a></nav></section>
 <section class="sec" id="sec-book-9" data-id="book-9" data-title="الاقتصاد">
 <header class="sec-head"><p class="eyebrow">الكتيّب الدراسي — المستوى الثالث</p><h1>الجزء التاسع — الاقتصاد (Economics)</h1>
@@ -4735,9 +4815,11 @@ GDP = C + I + G + (X − M)</p>
 </tr>
 </tbody>
 </table></div>
-<p><strong>تعريفان يُسأل عنهما:</strong>
-- الـ Investment في الـ GDP ليس شراء أسهم وسندات أو تداول أصول مالية، بل شراء سلع رأسمالية جديدة. والمخزونات المنتجة هذا العام تُحسب في GDP هذا العام ولو لم تُبع (كأن الشركة استثمرت في مخزونها).
-- الـ Transfer payments (إعانات البطالة، مستحقات المحاربين القدامى، الضمان الاجتماعي) مستبعدة من الـ GDP لأن الحكومة لا تتلقى مقابلها سلعة أو خدمة جديدة؛ هي تحويل دخل من دافعي الضرائب إلى غيرهم.</p>
+<p><strong>تعريفان يُسأل عنهما:</strong></p>
+<ul>
+<li>الـ Investment في الـ GDP ليس شراء أسهم وسندات أو تداول أصول مالية، بل شراء سلع رأسمالية جديدة. والمخزونات المنتجة هذا العام تُحسب في GDP هذا العام ولو لم تُبع (كأن الشركة استثمرت في مخزونها).</li>
+<li>الـ Transfer payments (إعانات البطالة، مستحقات المحاربين القدامى، الضمان الاجتماعي) مستبعدة من الـ GDP لأن الحكومة لا تتلقى مقابلها سلعة أو خدمة جديدة؛ هي تحويل دخل من دافعي الضرائب إلى غيرهم.</li>
+</ul>
 <h3>الـ GDP من جانب العرض</h3>
 <p>كل ما يُشترى لا بد أن يكون قد أُنتج، فالمجموعان متطابقان:</p>
 <div class="table-wrap"><table>
@@ -4796,10 +4878,12 @@ GDP = C + I + G + (X − M)</p>
 <li>Real GDP = Nominal GDP / (Price index / 100)</li>
 <li>GDP deflator = (Nominal GDP / Real GDP) × 100</li>
 </ul>
-<p><strong>مثال محلول:</strong>
-- 1960: nominal GDP = 543.3 مليار $، والـ deflator = 19.0 (2005 = 100) ⇒ Real GDP = 543.3 ÷ (19.0/100) = 2,859.5 مليار $ بأسعار 2005.
-- 2010: nominal GDP = 14,958.3 مليار $، والـ deflator = 110.0 ⇒ Real GDP = 14,958.3 ÷ (110/100) = 13,598.5 مليار $.
-- سنة الأساس (2005): الـ deflator = 100 بالتعريف، فالاسمي = الحقيقي: 13,095.4 ÷ 1.00 = 13,095.4.</p>
+<p><strong>مثال محلول:</strong></p>
+<ul>
+<li>1960: nominal GDP = 543.3 مليار $، والـ deflator = 19.0 (2005 = 100) ⇒ Real GDP = 543.3 ÷ (19.0/100) = 2,859.5 مليار $ بأسعار 2005.</li>
+<li>2010: nominal GDP = 14,958.3 مليار $، والـ deflator = 110.0 ⇒ Real GDP = 14,958.3 ÷ (110/100) = 13,598.5 مليار $.</li>
+<li>سنة الأساس (2005): الـ deflator = 100 بالتعريف، فالاسمي = الحقيقي: 13,095.4 ÷ 1.00 = 13,095.4.</li>
+</ul>
 <p>قواعد: مع تضخم موجب يكون الـ real GDP أقل من الـ nominal في أي سنة بعد سنة الأساس (القيمة الاسمية «منفوخة»)، وأكبر منه في أي سنة قبلها. وبين 1960 و2010 تضاعف مستوى الأسعار نحو ست مرات (deflator من 19 إلى 110)، فمعظم النمو الظاهري للـ nominal GDP (27 ضعفاً) كان تضخماً لا إنتاجاً.</p>
 <h3>مقارنة الـ GDP بين الدول</h3>
 <ol>
@@ -4810,14 +4894,16 @@ GDP = C + I + G + (X − M)</p>
 <p><strong>فخّ الترتيب:</strong> الترتيب بالـ GDP غير الترتيب بالـ GDP per capita. الهند GDP أكبر قليلاً من ألمانيا، لكن مستوى معيشة الفرد في ألمانيا أكثر من عشرة أضعاف. والصين ثاني أكبر GDP (9.5 تريليون $ مقابل 16.8 لأمريكا) لكن للفرد 6,958.70 مقابل 53,001 — أقل من الخُمس.</p>
 <p>نطاقات تقريبية للفرد: مرتفعة الدخل 20,000–50,000 $؛ متوسطة 6,000–12,000 $؛ منخفضة (كثير منها في أفريقيا وآسيا) كثيراً دون 2,000 $ سنوياً.</p>
 <h3>ما يعجز الـ GDP عن قياسه</h3>
-<p>«مستوى المعيشة» أوسع من الـ GDP الذي يركّز على الإنتاج المُشترى والمباع في الأسواق. الفجوات:
-- <strong>وقت الفراغ:</strong> اقتصادان بالـ GDP نفسه أحدهما يعمل ساعات أطول.
-- <strong>جودة البيئة:</strong> يحسب تكلفة معدات مكافحة التلوث لا نظافة الهواء والماء فعلاً.
-- <strong>مخرجات الصحة والتعليم:</strong> يحسب الإنفاق لا متوسط العمر أو معدلات القراءة والكتابة.
-- <strong>الإنتاج خارج السوق:</strong> جزّ حديقتك بأجر يُحسب، وبنفسك لا. ومع دخول النساء سوق العمل (42% في 1970 إلى نحو 60% في عشرينيات الألفية) انتقلت خدمات منزلية إلى السوق فبدا الـ GDP أكبر.
-- <strong>التفاوت:</strong> الـ GDP للفرد متوسط؛ ارتفاع 5% قد يعني ربح الجميع 5% أو ربح بعضهم كثيراً وتراجع آخرين.
-- <strong>التنوّع والتكنولوجيا:</strong> لا مبلغ في 1950 كان يشتري iPhone.
-- <strong>إعادة البناء بعد الكوارث</strong> تُحسب في الـ GDP وليست مكسباً في الرفاهية.</p>
+<p>«مستوى المعيشة» أوسع من الـ GDP الذي يركّز على الإنتاج المُشترى والمباع في الأسواق. الفجوات:</p>
+<ul>
+<li><strong>وقت الفراغ:</strong> اقتصادان بالـ GDP نفسه أحدهما يعمل ساعات أطول.</li>
+<li><strong>جودة البيئة:</strong> يحسب تكلفة معدات مكافحة التلوث لا نظافة الهواء والماء فعلاً.</li>
+<li><strong>مخرجات الصحة والتعليم:</strong> يحسب الإنفاق لا متوسط العمر أو معدلات القراءة والكتابة.</li>
+<li><strong>الإنتاج خارج السوق:</strong> جزّ حديقتك بأجر يُحسب، وبنفسك لا. ومع دخول النساء سوق العمل (42% في 1970 إلى نحو 60% في عشرينيات الألفية) انتقلت خدمات منزلية إلى السوق فبدا الـ GDP أكبر.</li>
+<li><strong>التفاوت:</strong> الـ GDP للفرد متوسط؛ ارتفاع 5% قد يعني ربح الجميع 5% أو ربح بعضهم كثيراً وتراجع آخرين.</li>
+<li><strong>التنوّع والتكنولوجيا:</strong> لا مبلغ في 1950 كان يشتري iPhone.</li>
+<li><strong>إعادة البناء بعد الكوارث</strong> تُحسب في الـ GDP وليست مكسباً في الرفاهية.</li>
+</ul>
 <p><strong>حكم الفصل:</strong> الـ GDP خشن لكنه مفيد؛ وارتفاع ملموس في الـ GDP للفرد يقترن عادةً بتحسّن التعليم والصحة والبيئة. ويظل مقياساً تقريبياً معقولاً. وندين به لـ Simon Kuznets.</p>
 <div class="callout exam"><h3>نقاط امتحانية</h3>
 <ul>
@@ -4856,10 +4942,12 @@ GDP = C + I + G + (X − M)</p>
 </tr>
 </tbody>
 </table></div>
-<p><strong>أيها يُستخدم فعلاً:</strong>
-- عمليات السوق المفتوحة الأكثر استخداماً بفارق كبير — دقيقة وقابلة للعكس.
-- نسب الاحتياطي نادراً ما تتغير: الرفع المفاجئ مربك، والتخفيف المفرط يعجز البنوك عن تلبية السحوبات. (أوائل 2015 في أمريكا: 0% على أول 14.5 مليون $ من الودائع، 3% حتى 103.6 مليون $، 10% فوق ذلك.)
-- الإقراض بسعر الخصم نادر الآن؛ البنوك تقترض من بعضها أولاً لأن سعر الخصم أعلى من سعر الأموال الفيدرالية. ووجد الـ Fed أن عمليات السوق المفتوحة أدق وأقوى.</p>
+<p><strong>أيها يُستخدم فعلاً:</strong></p>
+<ul>
+<li>عمليات السوق المفتوحة الأكثر استخداماً بفارق كبير — دقيقة وقابلة للعكس.</li>
+<li>نسب الاحتياطي نادراً ما تتغير: الرفع المفاجئ مربك، والتخفيف المفرط يعجز البنوك عن تلبية السحوبات. (أوائل 2015 في أمريكا: 0% على أول 14.5 مليون $ من الودائع، 3% حتى 103.6 مليون $، 10% فوق ذلك.)</li>
+<li>الإقراض بسعر الخصم نادر الآن؛ البنوك تقترض من بعضها أولاً لأن سعر الخصم أعلى من سعر الأموال الفيدرالية. ووجد الـ Fed أن عمليات السوق المفتوحة أدق وأقوى.</li>
+</ul>
 <p>اختبار الاتجاه: عامل البنك المركزي كأنه خارج النظام المصرفي — حين يشتري يتدفق المال إلى البنوك فيرتفع عرض النقود؛ وحين يبيع يتدفق المال إليه فيقل.</p>
 <h3>سعر الأموال الفيدرالية</h3>
 <p>الهدف المحدد لعمليات السوق المفتوحة هو <strong>federal funds rate</strong> — سعر القروض بين عشية وضحاها بين البنوك التجارية. شديد القصر لكنه يعكس أحوال الائتمان جيداً. يقرّره الـ <strong>FOMC</strong> الذي يجتمع عادةً كل ستة أسابيع ويحاول العمل بالإجماع، ولرئيسه تقليدياً دور قوي جداً.</p>
@@ -4868,16 +4956,20 @@ GDP = C + I + G + (X − M)</p>
 <li><strong>EXPANSIONARY (loose):</strong> M up → r down → I &amp; C up → AD shifts right → P up, real GDP up</li>
 <li><strong>CONTRACTIONARY (tight):</strong> M down → r up → I &amp; C down → AD shifts left → P down, real GDP down</li>
 </ul>
-<p>التوسعية تزيح عرض الأموال القابلة للإقراض يميناً فينخفض سعر الفائدة (من 8% إلى 6% في شكل الفصل) وترتفع الكمية المقترضة؛ والانكماشية تزيحه يساراً فيرتفع إلى 10% وتقل الكمية.
-- المتشددة تقلّل الطلب الكلي: ينخفض الاستثمار لأن الاقتراض أقل جاذبية، وحتى الشركات الغنية بالسيولة تفضّل الاستثمارات المالية بالأسعار الأعلى، ويُثبَّط اقتراض المستهلكين للمنازل والسيارات. والمتساهلة تفعل العكس.
-- أثر تغيّر السعر الفيدرالي على الأسعار الأخرى أقل من واحد لواحد: انخفاض نقطة في السعر الليلي أثره أصغر على رهن 30 سنة أو قرض سيارة 3 سنوات، لأن لها أسواقها الخاصة.</p>
+<p>التوسعية تزيح عرض الأموال القابلة للإقراض يميناً فينخفض سعر الفائدة (من 8% إلى 6% في شكل الفصل) وترتفع الكمية المقترضة؛ والانكماشية تزيحه يساراً فيرتفع إلى 10% وتقل الكمية.</p>
+<ul>
+<li>المتشددة تقلّل الطلب الكلي: ينخفض الاستثمار لأن الاقتراض أقل جاذبية، وحتى الشركات الغنية بالسيولة تفضّل الاستثمارات المالية بالأسعار الأعلى، ويُثبَّط اقتراض المستهلكين للمنازل والسيارات. والمتساهلة تفعل العكس.</li>
+<li>أثر تغيّر السعر الفيدرالي على الأسعار الأخرى أقل من واحد لواحد: انخفاض نقطة في السعر الليلي أثره أصغر على رهن 30 سنة أو قرض سيارة 3 سنوات، لأن لها أسواقها الخاصة.</li>
+</ul>
 <p><strong>الوصفة الجوهرية:</strong> السياسة النقدية ينبغي أن تكون معاكسة للدورة (countercyclical): تُخفَّف حين يرفع الركود البطالة، وتُشدَّد حين يهدّد التضخم. وخطرها المبالغة: المتساهلة المفرطة تشعل التضخم، والمتشددة المفرطة تبدأ ركوداً.</p>
 <h3>التيسير الكمي (Quantitative easing)</h3>
-<p>أواخر 2008 خفّض الـ Fed السعر إلى ما يقارب الصفر، ومع استمرار الركود تبنّى QE: شراء أوراق حكومية طويلة الأجل وأوراق خاصة مدعومة بالرهن العقاري، لإتاحة الائتمان وتحفيز الطلب الكلي.
-- اختلف عن السياسة التقليدية في أمرين: (1) شراء سندات خزانة طويلة الأجل لا أذون قصيرة (الأسعار القصيرة بلغت أدناها)؛ (2) شراء أوراق خاصة مدعومة بالرهن — لم يفعله الـ Fed قط من قبل — فخفض الأسعار الطويلة وأزال «أصولاً سامة» محتملة من ميزانيات الشركات المالية.
-- <strong>QE1</strong> نوفمبر 2008: 600 مليار $ من أوراق Fannie Mae وFreddie Mac المدعومة بالرهن.
-- <strong>QE2</strong> نوفمبر 2010: 600 مليار $ من سندات الخزانة.
-- <strong>QE3</strong> سبتمبر 2012: 40 مليار $ شهرياً من الأوراق المدعومة بالرهن، زيدت إلى 85 مليار $ شهرياً في ديسمبر 2012، ثم خُفِّضت تدريجياً؛ آخر شراء 15 مليار $ في أكتوبر 2014 وانتهى الـ QE.</p>
+<p>أواخر 2008 خفّض الـ Fed السعر إلى ما يقارب الصفر، ومع استمرار الركود تبنّى QE: شراء أوراق حكومية طويلة الأجل وأوراق خاصة مدعومة بالرهن العقاري، لإتاحة الائتمان وتحفيز الطلب الكلي.</p>
+<ul>
+<li>اختلف عن السياسة التقليدية في أمرين: (1) شراء سندات خزانة طويلة الأجل لا أذون قصيرة (الأسعار القصيرة بلغت أدناها)؛ (2) شراء أوراق خاصة مدعومة بالرهن — لم يفعله الـ Fed قط من قبل — فخفض الأسعار الطويلة وأزال «أصولاً سامة» محتملة من ميزانيات الشركات المالية.</li>
+<li><strong>QE1</strong> نوفمبر 2008: 600 مليار $ من أوراق Fannie Mae وFreddie Mac المدعومة بالرهن.</li>
+<li><strong>QE2</strong> نوفمبر 2010: 600 مليار $ من سندات الخزانة.</li>
+<li><strong>QE3</strong> سبتمبر 2012: 40 مليار $ شهرياً من الأوراق المدعومة بالرهن، زيدت إلى 85 مليار $ شهرياً في ديسمبر 2012، ثم خُفِّضت تدريجياً؛ آخر شراء 15 مليار $ في أكتوبر 2014 وانتهى الـ QE.</li>
+</ul>
 <p>يُنظر إلى الـ QE كإجراء طوارئ مؤقت؛ والقلق أنه أصعب في العكس منه في السنّ. الأدلة: QE1 ناجح إلى حد ما، وQE2 وQE3 أقل نجاحاً.</p>
 <h3>مزالق السياسة النقدية</h3>
 <p><strong>1) فترات إبطاء طويلة ومتغيرة:</strong> إدراك الوضع ← اجتماع ← قرار ← تسرّب عبر البنوك ← تغيّر أنماط الاستثمار والاقتراض ← ترشّح إلى باقي الاقتصاد؛ فالآثار الأساسية تُلمس بعد سنة إلى ثلاث سنوات. ليس معنى ذلك الامتناع عن القرار، بل التواضع أمام خطر أن تُحدث السياسة من عدم الاستقرار بقدر ما تحل.</p>
@@ -4888,18 +4980,22 @@ GDP = C + I + G + (X − M)</p>
 <li>Velocity = Nominal GDP / Money supply</li>
 <li>Money supply × velocity = Nominal GDP = Price level × Real GDP (the basic quantity equation of money)</li>
 </ul>
-<p>2009: M1 = 1.7 تريليون $، nominal GDP = 14.3 تريليون $ ⇒ السرعة 8.4 (السرعة الأعلى = الدولار يدور مرات أكثر في السنة).
-- سرعة ثابتة ⇒ زيادة عرض النقود بنسبة ما ترفع الـ nominal GDP بالنسبة نفسها.
-- سرعة متغيرة بشكل منتظم يمكن التنبؤ به ⇒ يبقى أثر عرض النقود متوقعاً.
-- سرعة متغيرة على نحو غير متوقع ⇒ أثر عرض النقود في الـ nominal GDP غير متوقع.</p>
+<p>2009: M1 = 1.7 تريليون $، nominal GDP = 14.3 تريليون $ ⇒ السرعة 8.4 (السرعة الأعلى = الدولار يدور مرات أكثر في السنة).</p>
+<ul>
+<li>سرعة ثابتة ⇒ زيادة عرض النقود بنسبة ما ترفع الـ nominal GDP بالنسبة نفسها.</li>
+<li>سرعة متغيرة بشكل منتظم يمكن التنبؤ به ⇒ يبقى أثر عرض النقود متوقعاً.</li>
+<li>سرعة متغيرة على نحو غير متوقع ⇒ أثر عرض النقود في الـ nominal GDP غير متوقع.</li>
+</ul>
 <p>من 1960 إلى نحو 1980 كانت سرعة M1 الأمريكية متوقعة وترتفع بمعدل ثابت تقريباً؛ ومنذ أوائل الثمانينيات صارت أكثر تقلباً بسبب الابتكارات المصرفية والمالية (المدفوعات الإلكترونية، بطاقات الائتمان، حسابات تسهّل إبقاء المال في الادخار M2 حتى الحاجة إليه M1). ويُفضَّل الآن M2 على M1 الأضيق.</p>
 <p><strong>قاعدة Friedman ولماذا تراجعت:</strong> في السبعينيات رأى Milton Friedman (1912–2006) وآخرون أن أفضل سياسة نمو ثابت لعرض النقود — نحو 3% سنوياً، يوازي نمو الاقتصاد الحقيقي — لأن فترات الإبطاء والضغوط السياسية تجعل السياسة التقديرية مرجِّحة للآثار غير المرغوبة بقدر المرغوبة. وكتب في 1967 ما معناه أن أهم درس من التاريخ أن السياسة النقدية تستطيع منع النقود من أن تكون مصدراً رئيسياً للاضطراب الاقتصادي. ومع تقلّب السرعة في الثمانينيات صار النمو الثابت سيجعل الـ nominal GDP متقلباً بلا تنبؤ، فتحولت البنوك المركزية إلى الاستجابة لخطر التضخم أو البطالة بدل استهداف كمية النقود.</p>
-<p><strong>4) الانكماش السعري (Deflation):</strong> معدل تضخم سالب، ويجعل السياسة النقدية صعبة جداً.
-- السعر الحقيقي = الاسمي − التضخم: اسمي 7% وتضخم 3% ⇒ حقيقي 4%؛ اسمي 7% وانكماش 2% ⇒ حقيقي 9%.
-- الانكماش غير المتوقع يرفع مدفوعات الفائدة الحقيقية ← تعثّر القروض ← تآكل صافي ثروة البنوك ← إقراض أقل ← تراجع إضافي في الطلب الكلي.
-- الضربة المزدوجة: بانكماش 5% حتى سعر اسمي صفر يترك سعراً حقيقياً 5%؛ فلا يستطيع البنك المركزي جعل السعر الحقيقي سالباً ولا خفضه أكثر بالسياسة التوسعية.
-- أمريكا 1930–1933: انكماش 6.7% سنوياً ← تعثّر واسع وانهيار مصرفي وإسهام كبير في الكساد الكبير.
-- ليس كل انكماش كساداً: اليابان 1999–2002 انكماش ≈ 1.1% سنوياً ونمو ≈ 0.9% سنوياً؛ وأمريكا 1876–1900 انكماش ≈ 1.1% سنوياً ونمو real GDP 4% سنوياً رغم ركودات حادة.</p>
+<p><strong>4) الانكماش السعري (Deflation):</strong> معدل تضخم سالب، ويجعل السياسة النقدية صعبة جداً.</p>
+<ul>
+<li>السعر الحقيقي = الاسمي − التضخم: اسمي 7% وتضخم 3% ⇒ حقيقي 4%؛ اسمي 7% وانكماش 2% ⇒ حقيقي 9%.</li>
+<li>الانكماش غير المتوقع يرفع مدفوعات الفائدة الحقيقية ← تعثّر القروض ← تآكل صافي ثروة البنوك ← إقراض أقل ← تراجع إضافي في الطلب الكلي.</li>
+<li>الضربة المزدوجة: بانكماش 5% حتى سعر اسمي صفر يترك سعراً حقيقياً 5%؛ فلا يستطيع البنك المركزي جعل السعر الحقيقي سالباً ولا خفضه أكثر بالسياسة التوسعية.</li>
+<li>أمريكا 1930–1933: انكماش 6.7% سنوياً ← تعثّر واسع وانهيار مصرفي وإسهام كبير في الكساد الكبير.</li>
+<li>ليس كل انكماش كساداً: اليابان 1999–2002 انكماش ≈ 1.1% سنوياً ونمو ≈ 0.9% سنوياً؛ وأمريكا 1876–1900 انكماش ≈ 1.1% سنوياً ونمو real GDP 4% سنوياً رغم ركودات حادة.</li>
+</ul>
 <h3>السيطرة الديمقراطية على السياسة النقدية</h3>
 <div class="table-wrap"><table>
 <thead>
@@ -4966,23 +5062,29 @@ GDP = C + I + G + (X − M)</p>
 <li><strong>Arbitrage — المراجحة:</strong> شراء وبيع السلع أو العملات عبر الحدود بربح. مثال الكتيّب: سيارة بـ 20,000 $ في أمريكا وما يعادل 32,000 $ في كندا، فيحوّل المشترون الأمريكيون دولاراتهم إلى دولارات كندية ويشترون من كندا (؟ اتجاه المثال كما ورد في النص). قد تكون بطيئة لكنها تُجبر الأسعار وأسعار الصرف على التوافق حتى يتقارب سعر السلع المتداولة دولياً.</li>
 <li><strong>PPP exchange rate:</strong> السعر الذي يعادل أسعار السلع المتداولة دولياً عبر الدول؛ يُحسب عبر International Comparison Program التابع للبنك الدولي.</li>
 </ul>
-<p>وظيفتا الـ PPP:
-1. المقارنات الدولية للـ GDP وغيره لأنه ثابت نسبياً بينما يتذبذب سعر السوق. مثال: بسعر السوق صيف 2008 (108 ين/$) وأواخر 2009 (90 ين/$) يبدو GDP اليابان قافزاً من 4.6 إلى 5.5 تريليون $ رغم مروره بركود.
-2. أسعار الصرف تقترب من الـ PPP مع الزمن، وإن ابتعدت عنه في الأجلين القصير والمتوسط بفعل التضخم النسبي والعائد والتوقعات؛ فمعرفته تساعد على تتبّع أسعار الصرف والتنبؤ بها.</p>
+<p>وظيفتا الـ PPP:</p>
+<ol>
+<li>المقارنات الدولية للـ GDP وغيره لأنه ثابت نسبياً بينما يتذبذب سعر السوق. مثال: بسعر السوق صيف 2008 (108 ين/$) وأواخر 2009 (90 ين/$) يبدو GDP اليابان قافزاً من 4.6 إلى 5.5 تريليون $ رغم مروره بركود.</li>
+<li>أسعار الصرف تقترب من الـ PPP مع الزمن، وإن ابتعدت عنه في الأجلين القصير والمتوسط بفعل التضخم النسبي والعائد والتوقعات؛ فمعرفته تساعد على تتبّع أسعار الصرف والتنبؤ بها.</li>
+</ol>
 <h3>الآثار الاقتصادية الكلية</h3>
 <p>التجارة الخارجية تعني تكاليف بعملة وإيرادات بأخرى، فحركات سعر الصرف تؤثر بقوة في حوافز التصدير والاستيراد.</p>
-<p><strong>مثال الشركة الفرنسية:</strong> تكاليف 10 ملايين يورو ومبيعات في أمريكا 10 ملايين $.
-- 1999 (اليورو = 1.06 $): 10 ملايين $ ÷ 1.06 = 9.4 مليون يورو ⇒ خسارة.
-- نهاية 2013 (اليورو = 1.37 $): ≈ 7.3 مليون يورو ⇒ خسارة أكبر.
-- اليورو الأقوى يثبّط صادرات الشركة الفرنسية؛ ومن جهة أمريكا، الدولار الأضعف يشجّع الصادرات.</p>
+<p><strong>مثال الشركة الفرنسية:</strong> تكاليف 10 ملايين يورو ومبيعات في أمريكا 10 ملايين $.</p>
+<ul>
+<li>1999 (اليورو = 1.06 $): 10 ملايين $ ÷ 1.06 = 9.4 مليون يورو ⇒ خسارة.</li>
+<li>نهاية 2013 (اليورو = 1.37 $): ≈ 7.3 مليون يورو ⇒ خسارة أكبر.</li>
+<li>اليورو الأقوى يثبّط صادرات الشركة الفرنسية؛ ومن جهة أمريكا، الدولار الأضعف يشجّع الصادرات.</li>
+</ul>
 <p>ليس صحيحاً أن الصادرات «جيدة» والواردات «سيئة»: من يشتري سيارة يابانية بـ 20,000 $ يعطي الشركة دولارات تحوّلها إلى ين — فتعود إلى الاقتصاد الأمريكي — ويوفّر المستهلك المال بشراء وارد أرخص.</p>
 <p><strong>أسعار الصرف والقروض والبنوك:</strong> أشد الآثار تدميراً يقع عبر البنوك؛ فمعظم القروض الدولية بالدولار واليورو والين، وبنوك الدول الأخرى تقترض بها وتُقرض بعملتها المحلية.</p>
-<p><strong>سلسلة تايلاند:</strong>
-- بنك يقترض مليون $ بفائدة 5%، يحوّله عند 40 باهت/$ إلى 40 مليون باهت يُقرضها محلياً بـ 6%؛ بعد سنة يُسدَّد له 42.4 مليون باهت.
-- سعر ثابت (40): = 1.06 مليون $؛ يسدّد 1.05 مليون $ (المليون + 5%) ويبقى 10,000 $ (≈ 400,000 باهت) للمصروفات والربح.
-- الباهت يضعف إلى 50: = 848,000 $ فقط مقابل 1.05 مليون $ مستحقة ⇒ خسارة 202,000 $ وعجز عن السداد.
-- هذا ما حدث في تايلاند وكوريا وماليزيا وإندونيسيا في 1997–98: انخفاض العملات 50% أو أكثر أحياناً، بعد نمو الإقراض المصرفي 20–30% سنوياً في منتصف التسعينيات بفعل تدفقات رأس المال؛ والأرجنتين 2002 مثلها.
-- لذا على البنك المركزي أن يهتم بما إذا كان انخفاض كبير مفاجئ في سعر الصرف سيُفلس معظم البنوك.</p>
+<p><strong>سلسلة تايلاند:</strong></p>
+<ul>
+<li>بنك يقترض مليون $ بفائدة 5%، يحوّله عند 40 باهت/$ إلى 40 مليون باهت يُقرضها محلياً بـ 6%؛ بعد سنة يُسدَّد له 42.4 مليون باهت.</li>
+<li>سعر ثابت (40): = 1.06 مليون $؛ يسدّد 1.05 مليون $ (المليون + 5%) ويبقى 10,000 $ (≈ 400,000 باهت) للمصروفات والربح.</li>
+<li>الباهت يضعف إلى 50: = 848,000 $ فقط مقابل 1.05 مليون $ مستحقة ⇒ خسارة 202,000 $ وعجز عن السداد.</li>
+<li>هذا ما حدث في تايلاند وكوريا وماليزيا وإندونيسيا في 1997–98: انخفاض العملات 50% أو أكثر أحياناً، بعد نمو الإقراض المصرفي 20–30% سنوياً في منتصف التسعينيات بفعل تدفقات رأس المال؛ والأرجنتين 2002 مثلها.</li>
+<li>لذا على البنك المركزي أن يهتم بما إذا كان انخفاض كبير مفاجئ في سعر الصرف سيُفلس معظم البنوك.</li>
+</ul>
 <h3>سياسات سعر الصرف الأربع</h3>
 <div class="table-wrap"><table>
 <thead>
@@ -5010,15 +5112,19 @@ GDP = C + I + G + (X − M)</p>
 </tr>
 </tbody>
 </table></div>
-<p><strong>التثبيت تحت التوازن وفوقه:</strong>
-- تحت التوازن ⇒ الكمية المطلوبة &gt; المعروضة؛ حالة حكومة تريد عملة أضعف لتحفيز الصادرات والطلب الكلي.
-- فوق التوازن ⇒ المعروضة &gt; المطلوبة؛ حكومة تريد عملة أقوى لخفض الطلب الكلي ومحاربة التضخم.
-- إضعاف العملة: سياسة نقدية توسعية تخفض الفائدة (قد تتعارض مع الأهداف المحلية)، أو التدخل المباشر بخلق عملة جديدة وشراء عملات أجنبية بها.
-- تقويتها: سياسة نقدية انكماشية ترفع الفائدة، أو استخدام احتياطيات العملات الأجنبية لشراء العملة المحلية.</p>
-<p><strong>المقايضات:</strong>
-- فقدان حرية السياسة النقدية: قد تحتاج الدولة إلى توسع لمحاربة ركود ولا تستطيع دون كسر التثبيت. مع الـ soft peg يمكن أحياناً تجاهل سعر الصرف؛ ومع الـ hard peg تتحدد السياسة النقدية بما يحفظ التثبيت فقط.
-- الاحتياطيات مكلفة: الاحتفاظ باحتياطيات كبيرة (دولارات أو يورو) له تكلفة فرصة بديلة، وشراء العملة المحلية يستنزف احتياطيات قابلة للنفاد.
-- الشائعات ذاتية التحقق: تفاعل المتعاملين مع شائعات توقيت التدخل قد يزيد التقلبات التي يُراد تقليلها.</p>
+<p><strong>التثبيت تحت التوازن وفوقه:</strong></p>
+<ul>
+<li>تحت التوازن ⇒ الكمية المطلوبة &gt; المعروضة؛ حالة حكومة تريد عملة أضعف لتحفيز الصادرات والطلب الكلي.</li>
+<li>فوق التوازن ⇒ المعروضة &gt; المطلوبة؛ حكومة تريد عملة أقوى لخفض الطلب الكلي ومحاربة التضخم.</li>
+<li>إضعاف العملة: سياسة نقدية توسعية تخفض الفائدة (قد تتعارض مع الأهداف المحلية)، أو التدخل المباشر بخلق عملة جديدة وشراء عملات أجنبية بها.</li>
+<li>تقويتها: سياسة نقدية انكماشية ترفع الفائدة، أو استخدام احتياطيات العملات الأجنبية لشراء العملة المحلية.</li>
+</ul>
+<p><strong>المقايضات:</strong></p>
+<ul>
+<li>فقدان حرية السياسة النقدية: قد تحتاج الدولة إلى توسع لمحاربة ركود ولا تستطيع دون كسر التثبيت. مع الـ soft peg يمكن أحياناً تجاهل سعر الصرف؛ ومع الـ hard peg تتحدد السياسة النقدية بما يحفظ التثبيت فقط.</li>
+<li>الاحتياطيات مكلفة: الاحتفاظ باحتياطيات كبيرة (دولارات أو يورو) له تكلفة فرصة بديلة، وشراء العملة المحلية يستنزف احتياطيات قابلة للنفاد.</li>
+<li>الشائعات ذاتية التحقق: تفاعل المتعاملين مع شائعات توقيت التدخل قد يزيد التقلبات التي يُراد تقليلها.</li>
+</ul>
 <p>منتصف العقد الأول من الألفية: نحو ثلث الدول soft peg ونحو الربع hard peg. واتجاه التسعينيات: الابتعاد عن الـ soft peg نحو التعويم أو التثبيت الصارم، لأن الـ soft peg الناجح يقلّل التباين حتى تتوقف الشركات والبنوك عن التحوّط؛ والأفضل وضوح أن السعر مرن دائماً أو ثابت دائماً، والحل الوسط قد يكون أسوأ الخيارات.</p>
 <p><strong>العملة المدمجة:</strong> تزيل مخاطر الصرف (كما بين نيويورك وكاليفورنيا، وكاليورو في ألمانيا وفرنسا)، لكنها تلغي السياسة النقدية المحلية: الإكوادور تستخدم الدولار بلا صوت في قرارات الـ Fed، والبرتغال قد لا تطابق قرارات البنك المركزي الأوروبي حاجتها.</p>
 <p><strong>الخلاصة:</strong> كل دولة تفضّل سعراً مستقراً للتجارة وتقليل المخاطرة، لكنها قد تريد أحياناً سعراً أضعف ضد الركود أو أقوى ضد التضخم؛ والحركة السريعة من الضعف إلى القوة قد تشلّ صناعات التصدير، ومن القوة إلى الضعف قد تشلّ القطاع المصرفي. فكل اختيار — أقوى أم أضعف، ثابت أم متغير — مقايضة. والسياسات الأربع متداخلة: soft peg بلا تدخل يشبه التعويم، وبتدخل كثير يشبه الـ hard peg، ودمج العملة تثبيت صارم دائم.</p>
@@ -5089,10 +5195,12 @@ GDP = C + I + G + (X − M)</p>
 </ul>
 <p><strong>وكم تفعل؟</strong> تعمل بسرعة (خصم ضريبي أقل فوراً، وطلبات إعانة فورية)، لكنها تقابل تاريخياً نحو 10% فقط من أي حركة أولية في الناتج — ككوابح الصدمات تخفف أسوأ المطبّات. ونحو 1900 كان الإنفاق الاتحادي ≈ 2% من الـ GDP، وفي 1929 ≈ 4% فقط، فكانت المثبّتات أضعف كثيراً مما هي اليوم مع إنفاق ≈ 20% من الـ GDP — وهذا أحد أسباب طول فترات الصعود بين الركودات.</p>
 <h3>المشكلات العملية للسياسة المالية التقديرية</h3>
-<p><strong>1) المزاحمة (Crowding out):</strong> الاقتراض الحكومي يؤثر في أسعار الفائدة. في شكل الفصل: زيادة العجز تزيح الطلب على رأس المال المالي يميناً، فيرتفع السعر من 6% إلى 7% والكمية من 800 إلى 900 مليار $.
-- تقدير توافقي: زيادة العجز (أو انخفاض الفائض) بنسبة 1% من الـ GDP ترفع سعر الفائدة طويل الأجل 0.5–1.0%.
-- الفائدة الأعلى تخفض الاستثمار التجاري والاستهلاك الأسري فتقلّل الطلب الكلي — وهذه هي المزاحمة.
-- الدرس: يجب تنسيق السياستين؛ البنك المركزي يستطيع إبقاء الأسعار القصيرة منخفضة لدعم التوسع المالي، وضمان ألا يقود الانكماش المالي إلى ركود.</p>
+<p><strong>1) المزاحمة (Crowding out):</strong> الاقتراض الحكومي يؤثر في أسعار الفائدة. في شكل الفصل: زيادة العجز تزيح الطلب على رأس المال المالي يميناً، فيرتفع السعر من 6% إلى 7% والكمية من 800 إلى 900 مليار $.</p>
+<ul>
+<li>تقدير توافقي: زيادة العجز (أو انخفاض الفائض) بنسبة 1% من الـ GDP ترفع سعر الفائدة طويل الأجل 0.5–1.0%.</li>
+<li>الفائدة الأعلى تخفض الاستثمار التجاري والاستهلاك الأسري فتقلّل الطلب الكلي — وهذه هي المزاحمة.</li>
+<li>الدرس: يجب تنسيق السياستين؛ البنك المركزي يستطيع إبقاء الأسعار القصيرة منخفضة لدعم التوسع المالي، وضمان ألا يقود الانكماش المالي إلى ركود.</li>
+</ul>
 <p><strong>2) فترات إبطاء طويلة ومتغيرة:</strong> السياسة النقدية تتغير عدة مرات في السنة؛ أما المالية فأبطأ كثيراً:</p>
 <div class="table-wrap"><table>
 <thead>
@@ -5124,13 +5232,15 @@ GDP = C + I + G + (X − M)</p>
 <p><strong>6) الحقائق السياسية:</strong> السياسة المعاكسة للدورة تقول: أنفق وخفّض الضرائب في التباطؤ، وخفّض الإنفاق أو ارفع الضرائب في الطفرة. لكن غريزة السياسيين أن التباطؤ وقت شدّ الحزام، وأن الأوقات الطيبة وقت خفض الضرائب وإنفاق جديد؛ فهم يفضّلون التوسع على الانكماش. وفي صعود أواخر التسعينيات وأوائل الألفية لم يدعُ سياسي رئيسي إلى خفض الإنفاق أو رفع الضرائب.</p>
 <p><strong>الخلاصة:</strong> التوسعية تساعد على إنهاء الركود والانكماشية على تقليل التضخم، لكن بسبب عدم اليقين (أثر الفائدة، الإبطاء، المؤقت مقابل الدائم، السلوك السياسي) خلص كثير من الاقتصاديين بحلول منتصف التسعينيات إلى أن السياسة التقديرية أداة خشنة — «هراوة لا مشرط». تُستخدم في الظروف المتطرفة (ركود عميق أو طويل)، وفي غيرها تُترك للمثبّتات التلقائية ويُعتمد على السياسة النقدية للجهود قصيرة الأجل المعاكسة للدورة.</p>
 <h3>مسألة الموازنة المتوازنة</h3>
-<p>مقترحات إلزام الموازنة الاتحادية بالتوازن تعود إلى الثلاثينيات؛ وفي 1995 مرّ تعديل دستوري في مجلس النواب بفارق كبير وسقط في مجلس الشيوخ بصوت واحد. وموقف معظم الاقتصاديين:
-- في الأجل القصير يجب أن تتذبذب العجوزات والفوائض مع الاقتصاد (عجوزات أكبر في الركود وأصغر في الطفرة)؛ والتوازن الإلزامي السنوي يعطّل المثبّتات التلقائية ويزيد التقلبات.
-- قياس الأسرة معيب: الأسر تقترض لمنزل أو سيارة أو علاج أو جامعة، وتسدد وتدّخر في سنوات أخرى، وتسحب مدخراتها بعد التقاعد. والحجة الكينزية: الحكومة تميل عكس الريح فتنفق في الشدة وتدّخر في الرخاء.
-- ولا يلزم التوازن في الأجل المتوسط: العجوزات قد تموّل استثمارات طويلة الأجل في رأس المال البشري والبنية التحتية.
-- يمكن تسجيل عجوزات لعقود ما دامت نسبتها أصغر من نمو الـ GDP، فتتراجع نسبة الدَّين (أوروبا من نهاية الحرب العالمية الثانية إلى نحو 1980).
-- لكن العجوزات ليست حكيمة دائماً: الضخم منها قد يشعل تضخماً حاداً، وقد تقترض الحكومات لأسباب حمقاء، وقد تخفض العجوزات الكبيرة الادخار الوطني والنمو وتسهم في أزمات مالية دولية.
-- ومع ذلك فإلزام التوازن في كل سنة تقويمية ردّ فعل مبالغ فيه ومضلِّل.</p>
+<p>مقترحات إلزام الموازنة الاتحادية بالتوازن تعود إلى الثلاثينيات؛ وفي 1995 مرّ تعديل دستوري في مجلس النواب بفارق كبير وسقط في مجلس الشيوخ بصوت واحد. وموقف معظم الاقتصاديين:</p>
+<ul>
+<li>في الأجل القصير يجب أن تتذبذب العجوزات والفوائض مع الاقتصاد (عجوزات أكبر في الركود وأصغر في الطفرة)؛ والتوازن الإلزامي السنوي يعطّل المثبّتات التلقائية ويزيد التقلبات.</li>
+<li>قياس الأسرة معيب: الأسر تقترض لمنزل أو سيارة أو علاج أو جامعة، وتسدد وتدّخر في سنوات أخرى، وتسحب مدخراتها بعد التقاعد. والحجة الكينزية: الحكومة تميل عكس الريح فتنفق في الشدة وتدّخر في الرخاء.</li>
+<li>ولا يلزم التوازن في الأجل المتوسط: العجوزات قد تموّل استثمارات طويلة الأجل في رأس المال البشري والبنية التحتية.</li>
+<li>يمكن تسجيل عجوزات لعقود ما دامت نسبتها أصغر من نمو الـ GDP، فتتراجع نسبة الدَّين (أوروبا من نهاية الحرب العالمية الثانية إلى نحو 1980).</li>
+<li>لكن العجوزات ليست حكيمة دائماً: الضخم منها قد يشعل تضخماً حاداً، وقد تقترض الحكومات لأسباب حمقاء، وقد تخفض العجوزات الكبيرة الادخار الوطني والنمو وتسهم في أزمات مالية دولية.</li>
+<li>ومع ذلك فإلزام التوازن في كل سنة تقويمية ردّ فعل مبالغ فيه ومضلِّل.</li>
+</ul>
 <div class="callout exam"><h3>نقاط امتحانية</h3>
 <ul>
 <li>Deficit سنوي؛ National debt متراكم؛ ونسبة الدَّين إلى الـ GDP قد تنخفض رغم العجز.</li>
@@ -5230,10 +5340,12 @@ GDP = C + I + G + (X − M)</p>
 </tbody>
 </table></div>
 <p>حجة Ricardo: التخصص وفق الميزة النسبية يرفع الإنتاج العالمي من 80 نفطاً و70 ذرة إلى 100 و100.</p>
-<p><strong>مدى المبادلات المفيدة:</strong>
-- تستفيد أمريكا إذا صدّرت ما لا يزيد على 60 بوشل ذرة واستوردت 20 برميلاً على الأقل؛ وتستفيد السعودية إذا استوردت 10 بوشل على الأقل وصدّرت أقل من 60 برميلاً.
-- المدى تحدده تكلفة الفرصة: لأمريكا البرميل = بوشلان، فمقابل 100 بوشل يجب أن تستورد 50 برميلاً على الأقل؛ والسعودية يجب أن تتلقى أكثر من بوشل مقابل كل أربعة براميل وإلا أنتجت الذرة بنفسها.
-- التخصص 100% ليس شرطاً: من نقطة داخلية، مبادلة 20 بوشل ذرة بـ 20 برميل نفط (سعر أفضل من تكلفة الفرصة لدى كلتيهما) تجعل الدولتين تستهلكان أكثر من السلعتين.</p>
+<p><strong>مدى المبادلات المفيدة:</strong></p>
+<ul>
+<li>تستفيد أمريكا إذا صدّرت ما لا يزيد على 60 بوشل ذرة واستوردت 20 برميلاً على الأقل؛ وتستفيد السعودية إذا استوردت 10 بوشل على الأقل وصدّرت أقل من 60 برميلاً.</li>
+<li>المدى تحدده تكلفة الفرصة: لأمريكا البرميل = بوشلان، فمقابل 100 بوشل يجب أن تستورد 50 برميلاً على الأقل؛ والسعودية يجب أن تتلقى أكثر من بوشل مقابل كل أربعة براميل وإلا أنتجت الذرة بنفسها.</li>
+<li>التخصص 100% ليس شرطاً: من نقطة داخلية، مبادلة 20 بوشل ذرة بـ 20 برميل نفط (سعر أفضل من تكلفة الفرصة لدى كلتيهما) تجعل الدولتين تستهلكان أكثر من السلعتين.</li>
+</ul>
 <h3>التجارة داخل الصناعة</h3>
 <ul>
 <li><strong>Intra-industry trade:</strong> تجارة في سلع داخل الصناعة نفسها (دولة تصدّر السيارات وتستوردها).</li>
@@ -5241,9 +5353,11 @@ GDP = C + I + G + (X − M)</p>
 <li><strong>Value chain:</strong> كيف تُنتج السلعة على مراحل.</li>
 </ul>
 <p>نحو نصف التجارة العالمية بين اقتصادات مرتفعة الدخل متشابهة (أمريكا، كندا، الاتحاد الأوروبي، اليابان، المكسيك، الصين). في 2014 صدّرت أمريكا سيارات بـ 159 مليار $ واستوردت بـ 327 مليار $. ونحو 60% من التجارة الأمريكية و60% من الأوروبية داخل الصناعة.</p>
-<p>سببان:
-1. <strong>تقسيم العمل يولّد التعلّم والابتكار والمهارات الفريدة:</strong> أمريكا تصدّر آلات تصنيع الخشب وتستورد آلات المعالجة الفوتوغرافية — بسبب ما تعلّمته الشركات في كل تخصص لا مستوى المهارة العام.
-2. <strong>اقتصادات الحجم:</strong> تكلفة متوسطة أقل مع الحجم؛ مصنع واحد قد يزوّد بريطانيا أو بلجيكا بكل سياراتها لكن بلا تنوع أو منافسة. والتجارة تجمع بين التكلفة الأقل والمنافسة والتنوع.</p>
+<p>سببان:</p>
+<ol>
+<li><strong>تقسيم العمل يولّد التعلّم والابتكار والمهارات الفريدة:</strong> أمريكا تصدّر آلات تصنيع الخشب وتستورد آلات المعالجة الفوتوغرافية — بسبب ما تعلّمته الشركات في كل تخصص لا مستوى المهارة العام.</li>
+<li><strong>اقتصادات الحجم:</strong> تكلفة متوسطة أقل مع الحجم؛ مصنع واحد قد يزوّد بريطانيا أو بلجيكا بكل سياراتها لكن بلا تنوع أو منافسة. والتجارة تجمع بين التكلفة الأقل والمنافسة والتنوع.</li>
+</ol>
 <p><strong>الميزة النسبية الديناميكية:</strong> في التجارة داخل الصناعة لا تحدد الإنتاجيةَ الجغرافيا أو المناخ أو مستوى التعليم العام، بل التعلّم المحدد للشركات واقتصادات الحجم؛ فالميزة النسبية تتطور مع المهارات الجديدة وطرق تقسيم سلسلة القيمة، وعلى الدول أن تكون مرنة إزاء تغيّرها.</p>
 <h3>فوائد خفض الحواجز</h3>
 <ul>
@@ -5265,11 +5379,13 @@ GDP = C + I + G + (X − M)</p>
 <p>اثنا عشر فصلاً: الدخل القومي، الاستهلاك، التضخم، البطالة، السياستان النقدية والمالية، تمويل الاستثمار، الدورة الاقتصادية، سعر الصرف، ميزان المدفوعات، التكامل الاقتصادي، الموازنة العامة.</p>
 <h3>49.1 — الدخل القومي</h3>
 <p>قيمة السلع والخدمات المنتجة خلال فترة (سنة) بالأسعار الجارية. ثلاث طرق للقياس:</p>
-<p><strong>الطريقة الأولى — الناتج القومي:</strong>
-1. تحديد الكميات المنتجة في الفترة الجارية فقط (مثلاً 100 وحدة س، 200 وحدة ص، 500 وحدة خدمة أ).
-2. تحديد أسعارها بأسعار سنة القياس (الأسعار الجارية).
-3. الضرب: 100 × 10 = 1,000؛ 200 × 5 = 1,000؛ 500 × 4 = 2,000.
-4. الجمع: 1,000 + 1,000 + 2,000 = 4,000.</p>
+<p><strong>الطريقة الأولى — الناتج القومي:</strong></p>
+<ol>
+<li>تحديد الكميات المنتجة في الفترة الجارية فقط (مثلاً 100 وحدة س، 200 وحدة ص، 500 وحدة خدمة أ).</li>
+<li>تحديد أسعارها بأسعار سنة القياس (الأسعار الجارية).</li>
+<li>الضرب: 100 × 10 = 1,000؛ 200 × 5 = 1,000؛ 500 × 4 = 2,000.</li>
+<li>الجمع: 1,000 + 1,000 + 2,000 = 4,000.</li>
+</ol>
 <p>صعوباتها: إنتاج لا يدخل الحساب (الاستهلاك الذاتي للمزارع)؛ الخدمات الشخصية (العمل المنزلي، الحديقة، كي الملابس، إعداد الطعام) مستبعدة؛ الخدمات العامة (الدفاع، الأمن، التعليم، القضاء) بلا مقابل؛ والازدواج الحسابي: مادة خام بـ 200 ← تُباع مصنّعة بـ 500 ← منتج نهائي بـ 700 ← تجزئة بـ 800؛ وجمع 200 + 500 + 700 + 800 = 2,200 يكرر القيم، فتُؤخذ قيمة السلع النهائية فقط.</p>
 <p><strong>الطريقة الثانية — دخول عوامل الإنتاج:</strong></p>
 <p>National income = Rent + Wages + Interest + Profits</p>
@@ -5329,11 +5445,13 @@ GDP = C + I + G + (X − M)</p>
 <p><strong>ما يزيح الدالة:</strong> عوامل موضوعية وذاتية — الثروة وتوزيعها، مستوى الأسعار، توقعات الأسعار والدخول، سعر الفائدة، الضرائب، توافر الائتمان، العادات والاتجاهات نحو الادخار. تغيّر الدخل = حركة على الدالة؛ وتغيّر هذه العوامل = إزاحة الدالة.</p>
 <h3>49.3 — التضخم</h3>
 <p>ارتفاع مستمر وعام في الأسعار مع انخفاض القوة الشرائية للنقود؛ مستمر (لا قفزة واحدة)، عام (لا سلعة واحدة)، وذاتي التعزيز.</p>
-<p><strong>الأنواع:</strong>
-- <strong>جذب الطلب (Demand-pull):</strong> الطلب الكلي ينمو أسرع من قدرة العرض — نقود كثيرة تطارد سلعاً قليلة.
-- <strong>دفع التكلفة (Cost-push):</strong> ارتفاع الأجور والمواد الخام والمدخلات المستوردة والطاقة يُمرَّر إلى الأسعار.
-- <strong>الهيكلي:</strong> اختناقات وجمود في الهيكل الإنتاجي تمنع العرض من الاستجابة.
-- <strong>المستورد:</strong> ارتفاع أسعار الواردات أو انخفاض العملة ينقل التضخم الأجنبي.</p>
+<p><strong>الأنواع:</strong></p>
+<ul>
+<li><strong>جذب الطلب (Demand-pull):</strong> الطلب الكلي ينمو أسرع من قدرة العرض — نقود كثيرة تطارد سلعاً قليلة.</li>
+<li><strong>دفع التكلفة (Cost-push):</strong> ارتفاع الأجور والمواد الخام والمدخلات المستوردة والطاقة يُمرَّر إلى الأسعار.</li>
+<li><strong>الهيكلي:</strong> اختناقات وجمود في الهيكل الإنتاجي تمنع العرض من الاستجابة.</li>
+<li><strong>المستورد:</strong> ارتفاع أسعار الواردات أو انخفاض العملة ينقل التضخم الأجنبي.</li>
+</ul>
 <p><strong>الآثار:</strong> على توزيع الدخل — يضرّ ثابتي الدخل (الموظفين وأصحاب المعاشات) ويفيد المدينين على حساب الدائنين؛ على الادخار والاستثمار — يثبّط الادخار النقدي ويوجّه الأموال إلى المضاربة والأصول العينية؛ على ميزان المدفوعات — تقل الصادرات وتزيد الواردات؛ اجتماعياً — يوسّع الفجوة الطبقية ويخلق السخط.</p>
 <p><strong>العلاج:</strong> نقدي (رفع سعر الخصم، رفع الاحتياطي، بيع الأوراق المالية في السوق المفتوحة)؛ مالي (خفض الإنفاق و/أو رفع الضرائب)؛ سياسة إنتاج (زيادة العرض وإزالة الاختناقات)؛ إجراءات مباشرة (الرقابة السعرية والتقنين ودعم السلع الأساسية).</p>
 <h3>49.4 — البطالة</h3>
@@ -5472,14 +5590,18 @@ GDP = C + I + G + (X − M)</p>
 <p><strong>محركات رأس المال:</strong> فوارق الفائدة والعائد المتوقع؛ الاستقرار السياسي والاقتصادي؛ توقعات سعر الصرف؛ مناخ الاستثمار (التشريعات والضرائب وسهولة تحويل الأرباح).</p>
 <p><strong>الطلب والعرض:</strong> الطلب على العملة الأجنبية من الاستيراد والتحويلات للخارج واستثمار المقيمين بالخارج؛ والعرض منها من التصدير والتحويلات من الخارج (ومنها تحويلات العاملين) والسياحة وتدفقات الاستثمار الأجنبي؛ والتوازن عند تقاطع المنحنيين. ويختم الكتيّب بأسباب انخفاض قيمة الجنيه المصري ومزايا وعيوب سعر الصرف الحر.</p>
 <h3>49.10 — ميزان المدفوعات</h3>
-<p><strong>التعريف:</strong> سجل لكل المعاملات الاقتصادية الخارجية بين المقيمين في دولة وغير المقيمين خلال فترة محددة — عادةً سنة.
-- <strong>المعاملات الاقتصادية:</strong> متنوعة؛ بعضها إيراد أجنبي وبعضها مدفوعات، وتشمل معاملات بلا مقابل كالهبات والتعويضات.
-- <strong>الدولة:</strong> كل الأشخاص الطبيعيين والاعتباريين (شركات ومؤسسات وهيئات) العاملين داخل إقليمها، بما فيه المياه الإقليمية والمجال الجوي.
-- <strong>المقيم:</strong> من تربطه بالإقليم صلات قوية ويخضع لقوانينه ويتمتع بحمايته، وليس شرطاً أن يكون مواطناً. المسافرون والسائحون والدبلوماسيون والقنصليون والقوات الأجنبية المرابطة غير مقيمين.
-- <strong>الفترة:</strong> عادةً سنة.</p>
-<p><strong>التقويم:</strong>
-- Exports valued F.O.B. (Free On Board) = value of the goods loaded on the vessel as they leave the export port, before adding transport, insurance and freight
-- Imports valued C.I.F. (Cost, Insurance, Freight) = value of the goods at the import port, i.e. after adding the costs of transport, insurance and freight from the export port to the import port</p>
+<p><strong>التعريف:</strong> سجل لكل المعاملات الاقتصادية الخارجية بين المقيمين في دولة وغير المقيمين خلال فترة محددة — عادةً سنة.</p>
+<ul>
+<li><strong>المعاملات الاقتصادية:</strong> متنوعة؛ بعضها إيراد أجنبي وبعضها مدفوعات، وتشمل معاملات بلا مقابل كالهبات والتعويضات.</li>
+<li><strong>الدولة:</strong> كل الأشخاص الطبيعيين والاعتباريين (شركات ومؤسسات وهيئات) العاملين داخل إقليمها، بما فيه المياه الإقليمية والمجال الجوي.</li>
+<li><strong>المقيم:</strong> من تربطه بالإقليم صلات قوية ويخضع لقوانينه ويتمتع بحمايته، وليس شرطاً أن يكون مواطناً. المسافرون والسائحون والدبلوماسيون والقنصليون والقوات الأجنبية المرابطة غير مقيمين.</li>
+<li><strong>الفترة:</strong> عادةً سنة.</li>
+</ul>
+<p><strong>التقويم:</strong></p>
+<ul>
+<li>Exports valued F.O.B. (Free On Board) = value of the goods loaded on the vessel as they leave the export port, before adding transport, insurance and freight</li>
+<li>Imports valued C.I.F. (Cost, Insurance, Freight) = value of the goods at the import port, i.e. after adding the costs of transport, insurance and freight from the export port to the import port</li>
+</ul>
 <p><strong>البنود:</strong></p>
 <div class="table-wrap"><table>
 <thead>
@@ -5716,10 +5838,12 @@ GDP = C + I + G + (X − M)</p>
 </table></div>
 <p>الضرائب الممكنة: على دخل الأشخاص الطبيعيين، على دخل الشركات (الأرباح)، الجمركية، المبيعات، القيمة المضافة، الثروة أو رأس المال.</p>
 <p><strong>النفقات العامة:</strong> إنفاق الجهات الحكومية لتحقيق نفع عام (تعليم، صحة، طرق وأعمال كبرى، دفاع وأمن)؛ تُقسَّم حسب الوزارة والجهة، وإلى جارٍ (أجور ومرتبات) ورأسمالي (كباري وطرق ومدارس ومستشفيات).</p>
-<p><strong>تمويل العجز:</strong> أولاً السحب من الأرصدة النقدية (الاحتياطيات) إن وُجدت، مع تفضيل عدم استنفادها. ثم الخيارات:
-1. <strong>استبعاد نفقات:</strong> مرفوض عادةً لالتزام الحكومة ببرامج محددة، فتلجأ للبديل الثاني.
-2. <strong>زيادة الضرائب:</strong> رفع المعدلات أو فرض ضرائب جديدة؛ يتطلب المجالس التشريعية وكثيراً ما يُرفض اجتماعياً، فتلجأ للبديل الثالث.
-3. <strong>التمويل بالعجز (الاقتراض):</strong> بيع سندات حكومية للجمهور أو للبنوك التجارية أو للبنك المركزي.</p>
+<p><strong>تمويل العجز:</strong> أولاً السحب من الأرصدة النقدية (الاحتياطيات) إن وُجدت، مع تفضيل عدم استنفادها. ثم الخيارات:</p>
+<ol>
+<li><strong>استبعاد نفقات:</strong> مرفوض عادةً لالتزام الحكومة ببرامج محددة، فتلجأ للبديل الثاني.</li>
+<li><strong>زيادة الضرائب:</strong> رفع المعدلات أو فرض ضرائب جديدة؛ يتطلب المجالس التشريعية وكثيراً ما يُرفض اجتماعياً، فتلجأ للبديل الثالث.</li>
+<li><strong>التمويل بالعجز (الاقتراض):</strong> بيع سندات حكومية للجمهور أو للبنوك التجارية أو للبنك المركزي.</li>
+</ol>
 <div class="table-wrap"><table>
 <thead>
 <tr>
@@ -6324,13 +6448,17 @@ Balance of payments = Current account + Capital account
 <ul>
 <li><strong>من الكشكول:</strong> شروط الـ Motive + لا يحدث تداخل بين 1 و4 + موجة 3 Impulse، أي 5 شروط.</li>
 </ul>
-<p><strong>قواعد الـ Motive wave (لا يجوز كسرها):</strong>
-1. الموجة 2 لا تصحح أكثر من 100% من الموجة 1.
-2. الموجة 3 لا تكون أبدًا الأقصر بين الموجات 1 و3 و5.
-3. الموجة 3 دائمًا تتجاوز نهاية الموجة 1.</p>
-<p><strong>الشروط الإضافية التي تجعلها Impulse (أقوى أنواع الموجات الدافعة):</strong>
-1. لا تداخل: الموجة 4 لا تدخل المدى السعري للموجة 1.
-2. الموجة 3 (والموجتان 1 و5) تنقسم كـ Impulse — الهيكل الداخلي 5-3-5-3-5.</p>
+<p><strong>قواعد الـ Motive wave (لا يجوز كسرها):</strong></p>
+<ol>
+<li>الموجة 2 لا تصحح أكثر من 100% من الموجة 1.</li>
+<li>الموجة 3 لا تكون أبدًا الأقصر بين الموجات 1 و3 و5.</li>
+<li>الموجة 3 دائمًا تتجاوز نهاية الموجة 1.</li>
+</ol>
+<p><strong>الشروط الإضافية التي تجعلها Impulse (أقوى أنواع الموجات الدافعة):</strong></p>
+<ol>
+<li>لا تداخل: الموجة 4 لا تدخل المدى السعري للموجة 1.</li>
+<li>الموجة 3 (والموجتان 1 و5) تنقسم كـ Impulse — الهيكل الداخلي 5-3-5-3-5.</li>
+</ol>
 <ul>
 <li><strong>نصيحة للامتحان:</strong> الكشكول يعدّها «5 شروط» = 3 قواعد للـ Motive + عدم تداخل 1 و4 + الموجة 3 Impulse.</li>
 </ul>
@@ -7020,13 +7148,15 @@ Balance of payments = Current account + Capital account
 <li>⚠ صِف بلغة يابانية: N = «ثلاث سيقان، اتجاهها كذا، مداها كذا» لا «higher highs and higher lows»؛ لا تخلط المدرستين. Y ليست الـbroadening top الغربي (يحتاج أربعة شروط: الموضع، التركيب، الإطار، الاتجاه، ويظهر عند القمم) — المقارنة شكلية. نمط الشموع يُذكر <strong>باسمه</strong> (harami، bullish engulfing).</li>
 </ul>
 <h3>Bottoming-out (Top-forming) <a class="ref" data-img="icha_28" href="img/icha_28.jpg" rel="noopener" target="_blank">ص28</a></h3>
-<p>الامتحان يسأل <strong>التفاصيل لا الرسم</strong>. خط أفقي من القاع الأول = <strong>Border line</strong>.
-1. A ← B ← C <strong>أعلى من A</strong>.
-2. C خلال <strong>26 يومًا</strong> من A (± يوم).
-3. خلال أيام من C: <strong>Tenkan يعبر Kijun لأعلى، Chikou فوق سعر ما قبل 26 يومًا، السعر يعبر السحابة لأعلى</strong>.
-4. تسارع؛ قد يصحح لكن السحابة تدعمه ويستأنف خلال <strong>تسعة أيام</strong>.
-5. يُستحسن breakaway gap بعد C (والأفضل gaps متتالية)، و<strong>ألا يعود السعر تحت الـBase line</strong>.
-- أشكال القاع: <strong>الأقوى قاع أعلى لا يعبر الـborder line</strong>؛ ثم double bottom كلاسيكي؛ وأحيانًا قاع أدنى. القمم مرآة.</p>
+<p>الامتحان يسأل <strong>التفاصيل لا الرسم</strong>. خط أفقي من القاع الأول = <strong>Border line</strong>.</p>
+<ol>
+<li>A ← B ← C <strong>أعلى من A</strong>.</li>
+<li>C خلال <strong>26 يومًا</strong> من A (± يوم).</li>
+<li>خلال أيام من C: <strong>Tenkan يعبر Kijun لأعلى، Chikou فوق سعر ما قبل 26 يومًا، السعر يعبر السحابة لأعلى</strong>.</li>
+<li>تسارع؛ قد يصحح لكن السحابة تدعمه ويستأنف خلال <strong>تسعة أيام</strong>.</li>
+<li>يُستحسن breakaway gap بعد C (والأفضل gaps متتالية)، و<strong>ألا يعود السعر تحت الـBase line</strong>.
+- أشكال القاع: <strong>الأقوى قاع أعلى لا يعبر الـborder line</strong>؛ ثم double bottom كلاسيكي؛ وأحيانًا قاع أدنى. القمم مرآة.</li>
+</ol>
 <h3>الأهداف السعرية <a class="ref" data-img="icha_29" href="img/icha_29.jpg" rel="noopener" target="_blank">ص29</a> <a class="ref" data-img="icha_30" href="img/icha_30.jpg" rel="noopener" target="_blank">ص30</a></h3>
 <ul>
 <li>الغرب: «لكل فعل رد فعل مساوٍ» مع افتراض استمرار الاتجاه؛ اليابانيون: من مدى الموجة وتركيبها وحجمها لهدف <strong>الحركة القصيرة التالية</strong>.</li>
@@ -7855,9 +7985,11 @@ Balance of payments = Current account + Capital account
 <section class="sec" id="sec-rs-typed" data-id="rs-typed" data-title="Relative Strength (مطبوع)">
 <header class="sec-head"><p class="eyebrow">مذكرات مطبوعة</p><h1>Relative Strength و Relative Performance</h1>
 <p class="src">المصدر: Relative_Strength_AR — 25 صفحة</p></header>
-<details class="toc" open><summary>في هذا القسم</summary><ul><li><a href="#rs-typed" data-jump="rs-typed-h0">1. ما هو الـ Relative Strength وما ليس هو</a></li><li><a href="#rs-typed" data-jump="rs-typed-h1">2. الحساب والسيناريوهات الخمسة</a></li><li><a href="#rs-typed" data-jump="rs-typed-h2">3. الفخ: صعود خط الـ RS لا يعني uptrend</a></li><li><a href="#rs-typed" data-jump="rs-typed-h3">4. الشكلان: الـ RS العادي والـ normalized RP</a></li><li><a href="#rs-typed" data-jump="rs-typed-h4">5. قراءته عمليًا</a></li><li><a href="#rs-typed" data-jump="rs-typed-h5">6. الـ small/mid caps أمام الـ defensive stocks</a></li><li><a href="#rs-typed" data-jump="rs-typed-h6">7. المؤشر في يد الـ asset/portfolio manager</a></li><li><a href="#rs-typed" data-jump="rs-typed-h7">8. من أعلى لأسفل: asset class ثم sector ثم سهم</a></li><li><a href="#rs-typed" data-jump="rs-typed-h8">9. تحذيران من الأسئلة</a></li><li><a href="#rs-typed" data-jump="rs-typed-h9">نقاط امتحانية (من أسئلة المراجعة الـ 24)</a></li><li><a href="#rs-typed" data-jump="rs-typed-h10">صلة بالكتيّب الشامل</a></li></ul></details><div class="prose"><p>المصدر: <code>F:/Ceta3/Relative_Strength_AR.pdf</code> (25 صفحة) — كتيّب مبني على الجلسة المسجلة الأولى «Level 3 2026 - RS - Session 1» (ساعة و36 دقيقة) مع الأستاذ محمد أشرف (CETA, CFTe, MFTA)، مع توقيتات التسجيل بين أقواس مربعة. أُعدّ في 6 أكتوبر 2026. النص المستخرج آليًا من كلام عربي؛ ما لم يتضح موسوم بتحذير.
-- الجلسة الأولى: الـ indicator نفسه (ما هو، الحساب، شكلاه، الاستخدام في portfolio management). الجلسة الثانية: حل سؤال الامتحان خطوة بخطوة (غير مغطاة في هذا الملف — انظر الفصل 27 في <code>typed_level3_booklet.md</code>).
-- <strong>الوزن في الامتحان: نحو 15 درجة</strong>، والسؤال يأتي كل عام بنفس «الأسطمبة» تقريبًا.</p>
+<details class="toc" open><summary>في هذا القسم</summary><ul><li><a href="#rs-typed" data-jump="rs-typed-h0">1. ما هو الـ Relative Strength وما ليس هو</a></li><li><a href="#rs-typed" data-jump="rs-typed-h1">2. الحساب والسيناريوهات الخمسة</a></li><li><a href="#rs-typed" data-jump="rs-typed-h2">3. الفخ: صعود خط الـ RS لا يعني uptrend</a></li><li><a href="#rs-typed" data-jump="rs-typed-h3">4. الشكلان: الـ RS العادي والـ normalized RP</a></li><li><a href="#rs-typed" data-jump="rs-typed-h4">5. قراءته عمليًا</a></li><li><a href="#rs-typed" data-jump="rs-typed-h5">6. الـ small/mid caps أمام الـ defensive stocks</a></li><li><a href="#rs-typed" data-jump="rs-typed-h6">7. المؤشر في يد الـ asset/portfolio manager</a></li><li><a href="#rs-typed" data-jump="rs-typed-h7">8. من أعلى لأسفل: asset class ثم sector ثم سهم</a></li><li><a href="#rs-typed" data-jump="rs-typed-h8">9. تحذيران من الأسئلة</a></li><li><a href="#rs-typed" data-jump="rs-typed-h9">نقاط امتحانية (من أسئلة المراجعة الـ 24)</a></li><li><a href="#rs-typed" data-jump="rs-typed-h10">صلة بالكتيّب الشامل</a></li></ul></details><div class="prose"><p>المصدر: <code>F:/Ceta3/Relative_Strength_AR.pdf</code> (25 صفحة) — كتيّب مبني على الجلسة المسجلة الأولى «Level 3 2026 - RS - Session 1» (ساعة و36 دقيقة) مع الأستاذ محمد أشرف (CETA, CFTe, MFTA)، مع توقيتات التسجيل بين أقواس مربعة. أُعدّ في 6 أكتوبر 2026. النص المستخرج آليًا من كلام عربي؛ ما لم يتضح موسوم بتحذير.</p>
+<ul>
+<li>الجلسة الأولى: الـ indicator نفسه (ما هو، الحساب، شكلاه، الاستخدام في portfolio management). الجلسة الثانية: حل سؤال الامتحان خطوة بخطوة (غير مغطاة في هذا الملف — انظر الفصل 27 في <code>typed_level3_booklet.md</code>).</li>
+<li><strong>الوزن في الامتحان: نحو 15 درجة</strong>، والسؤال يأتي كل عام بنفس «الأسطمبة» تقريبًا.</li>
+</ul>
 <hr/>
 <h2 id="rs-typed-h0">1. ما هو الـ Relative Strength وما ليس هو</h2>
 <ul>
@@ -8623,11 +8755,13 @@ Balance of payments = Current account + Capital account
 <li>«السؤال ده ما بياخدش وقت خالص. كل اللي أنا بعمله إني بشرح … أنا أوريدي قعدت نص ساعة أو 35 دقيقة بتكلم». ما دام 15% من الدرجات فليأخذ 15% من الساعات الثلاث. والترتيب هو ما يجعله سريعًا: «امشِ systematic كده هتلاقي الموضوع سهل».</li>
 </ul>
 <h3>شكل الإجابة النهائية <a class="ref" data-img="rsx_19" href="img/rsx_19.jpg" rel="noopener" target="_blank">ص19</a></h3>
-<p>أكّدها حرفًا بحرف حين أعادها عليه طالب:
-1. امسك كل رسم، وعلّق عليه، ثم انتقل.
-2. في الآخر اكتب <strong>summary</strong>: سطرًا واحدًا لكل رسم فيه الـ conclusion منه.
-3. رتّب الـ asset classes من الـ outperformer إلى أسوأ الـ underperformers.
-4. بناءً عليه عدّل الـ allocation بتاع المحفظة.</p>
+<p>أكّدها حرفًا بحرف حين أعادها عليه طالب:</p>
+<ol>
+<li>امسك كل رسم، وعلّق عليه، ثم انتقل.</li>
+<li>في الآخر اكتب <strong>summary</strong>: سطرًا واحدًا لكل رسم فيه الـ conclusion منه.</li>
+<li>رتّب الـ asset classes من الـ outperformer إلى أسوأ الـ underperformers.</li>
+<li>بناءً عليه عدّل الـ allocation بتاع المحفظة.</li>
+</ol>
 <h2 id="rs-exam-h7">الجزء السابع — الفخ المفاهيمي (يستحق قراءتين) <a class="ref" data-img="rsx_20" href="img/rsx_20.jpg" rel="noopener" target="_blank">الأصل ص20</a></h2>
 <h3>أولًا: خط الـ RS يُقرأ بالكتاب كأي trend <a class="ref" data-img="rsx_20" href="img/rsx_20.jpg" rel="noopener" target="_blank">ص20</a></h3>
 <ul>
@@ -8844,10 +8978,12 @@ Balance of payments = Current account + Capital account
 <section class="sec" id="sec-intermarket" data-id="intermarket" data-title="Intermarket">
 <header class="sec-head"><p class="eyebrow">مذكرات مطبوعة</p><h1>التحليل بين الأسواق (Intermarket Analysis)</h1>
 <p class="src">المصدر: InterMarket_Ar (13) + Intermarket Analysis (3)</p></header>
-<details class="toc" open><summary>في هذا القسم</summary><ul><li><a href="#intermarket" data-jump="intermarket-h0">1. الفكرة والإطار</a></li><li><a href="#intermarket" data-jump="intermarket-h1">2. أساسيات الاقتصاد الكلي (A فقط بتفصيل)</a></li><li><a href="#intermarket" data-jump="intermarket-h2">3. مراحل الدورة الاقتصادية (A — الشكل 1)</a></li><li><a href="#intermarket" data-jump="intermarket-h3">4. دورة الأعمال (Business Cycle) — مراحل Pring الست (A وB)</a></li><li><a href="#intermarket" data-jump="intermarket-h4">5. تدوير القطاعات في دورة الأعمال (Sector Rotation)</a></li><li><a href="#intermarket" data-jump="intermarket-h5">6. تدوير القطاعات في دورة السوق (A — الشكل 8 من كتاب Murphy)</a></li><li><a href="#intermarket" data-jump="intermarket-h6">7. الخلاصة (A)</a></li><li><a href="#intermarket" data-jump="intermarket-h7">نقاط امتحانية</a></li><li><a href="#intermarket" data-jump="intermarket-h8">الفروق بين المصدرين</a></li></ul></details><div class="prose"><p>المصادر (مدمجة):
-- <strong>A</strong> = <code>F:/Ceta3/InterMarket_Ar.pdf</code> (13 صفحة) — Ahmed M. Shehata, CFTe, CETA (ESTA)، بعنوان «الاستثمار طويل الأجل باستخدام التحليل الفني». (ملاحظة: النص المستخرج من هذا الملف مقلوب ترتيب الكلمات في كثير من الأسطر؛ أُعيدت قراءته بالمعنى، وراجعت الصفحتين 11 و13 بصريًا.)
-- <strong>B</strong> = <code>F:/Ceta3/Intermarket Analysis.pdf</code> (3 صفحات) — Hamza A. Abdelwahab. نسخة مختصرة تركز على مراحل Pring الست وتدوير القطاعات، مع إضافات قليلة.
-- الفروق بين المصدرين مذكورة في القسم الأخير.</p>
+<details class="toc" open><summary>في هذا القسم</summary><ul><li><a href="#intermarket" data-jump="intermarket-h0">1. الفكرة والإطار</a></li><li><a href="#intermarket" data-jump="intermarket-h1">2. أساسيات الاقتصاد الكلي (A فقط بتفصيل)</a></li><li><a href="#intermarket" data-jump="intermarket-h2">3. مراحل الدورة الاقتصادية (A — الشكل 1)</a></li><li><a href="#intermarket" data-jump="intermarket-h3">4. دورة الأعمال (Business Cycle) — مراحل Pring الست (A وB)</a></li><li><a href="#intermarket" data-jump="intermarket-h4">5. تدوير القطاعات في دورة الأعمال (Sector Rotation)</a></li><li><a href="#intermarket" data-jump="intermarket-h5">6. تدوير القطاعات في دورة السوق (A — الشكل 8 من كتاب Murphy)</a></li><li><a href="#intermarket" data-jump="intermarket-h6">7. الخلاصة (A)</a></li><li><a href="#intermarket" data-jump="intermarket-h7">نقاط امتحانية</a></li><li><a href="#intermarket" data-jump="intermarket-h8">الفروق بين المصدرين</a></li></ul></details><div class="prose"><p>المصادر (مدمجة):</p>
+<ul>
+<li><strong>A</strong> = <code>F:/Ceta3/InterMarket_Ar.pdf</code> (13 صفحة) — Ahmed M. Shehata, CFTe, CETA (ESTA)، بعنوان «الاستثمار طويل الأجل باستخدام التحليل الفني». (ملاحظة: النص المستخرج من هذا الملف مقلوب ترتيب الكلمات في كثير من الأسطر؛ أُعيدت قراءته بالمعنى، وراجعت الصفحتين 11 و13 بصريًا.)</li>
+<li><strong>B</strong> = <code>F:/Ceta3/Intermarket Analysis.pdf</code> (3 صفحات) — Hamza A. Abdelwahab. نسخة مختصرة تركز على مراحل Pring الست وتدوير القطاعات، مع إضافات قليلة.</li>
+<li>الفروق بين المصدرين مذكورة في القسم الأخير.</li>
+</ul>
 <hr/>
 <h2 id="intermarket-h0">1. الفكرة والإطار</h2>
 <ul>
@@ -9138,10 +9274,12 @@ Balance of payments = Current account + Capital account
 <section class="sec" id="sec-exams" data-id="exams" data-title="الامتحانات">
 <header class="sec-head"><p class="eyebrow">الامتحانات وكتابة التقرير</p><h1>الامتحانات التجريبية والفعلية</h1>
 <p class="src">المصدر: 3 امتحانات — 94 صفحة</p></header>
-<details class="toc" open><summary>في هذا القسم</summary><ul><li><a href="#exams" data-jump="exams-h0">1) CFTe Level I — Mock Exam (14 أغسطس 2014)</a></li><li><a href="#exams" data-jump="exams-h1">2) CFTe II — ورقة 19 أكتوبر 2017 (Mock)</a></li><li><a href="#exams" data-jump="exams-h2">3) CFTe II — اختبار 11 أبريل 2024</a></li><li><a href="#exams" data-jump="exams-h3">4) المقارنة بين الامتحانات الثلاثة</a></li></ul></details><div class="prose"><p>المصادر:
-1. <code>F:/Ceta3/IFTA_CFTeI_Mock_Exam_Arabic.pdf</code> (54 صفحة) — CFTe Level I MOCK، 14 أغسطس 2014، <strong>مع مفتاح الإجابات والشرح</strong>.
-2. <code>F:/Ceta3/IFTA_CFTeII_Mock_Exam_ARA.pdf</code> (19 صفحة) — ورقة أسئلة CFTe II بتاريخ 19 أكتوبر 2017 (مصنّفة «Mock»)، <strong>بلا مفتاح إجابات</strong>.
-3. <code>F:/Ceta3/Arabic_CFTeII_Exam_11Apr24.pdf</code> (21 صفحة) — ورقة أسئلة اختبار CFTe II بتاريخ 11 أبريل 2024، <strong>بلا مفتاح إجابات</strong>.</p>
+<details class="toc" open><summary>في هذا القسم</summary><ul><li><a href="#exams" data-jump="exams-h0">1) CFTe Level I — Mock Exam (14 أغسطس 2014)</a></li><li><a href="#exams" data-jump="exams-h1">2) CFTe II — ورقة 19 أكتوبر 2017 (Mock)</a></li><li><a href="#exams" data-jump="exams-h2">3) CFTe II — اختبار 11 أبريل 2024</a></li><li><a href="#exams" data-jump="exams-h3">4) المقارنة بين الامتحانات الثلاثة</a></li></ul></details><div class="prose"><p>المصادر:</p>
+<ol>
+<li><code>F:/Ceta3/IFTA_CFTeI_Mock_Exam_Arabic.pdf</code> (54 صفحة) — CFTe Level I MOCK، 14 أغسطس 2014، <strong>مع مفتاح الإجابات والشرح</strong>.</li>
+<li><code>F:/Ceta3/IFTA_CFTeII_Mock_Exam_ARA.pdf</code> (19 صفحة) — ورقة أسئلة CFTe II بتاريخ 19 أكتوبر 2017 (مصنّفة «Mock»)، <strong>بلا مفتاح إجابات</strong>.</li>
+<li><code>F:/Ceta3/Arabic_CFTeII_Exam_11Apr24.pdf</code> (21 صفحة) — ورقة أسئلة اختبار CFTe II بتاريخ 11 أبريل 2024، <strong>بلا مفتاح إجابات</strong>.</li>
+</ol>
 <p>ملاحظة: الرسوم البيانية في الامتحانين الثانيين صور؛ وُصفت بعناوينها/مؤشراتها فقط. بعض صفحات ورقة 2024 مستخرجة نصيًا بشكل مشوّه، فرُوجعت الصفحات 1 و2 و7 بصريًا.</p>
 <hr/>
 <h2 id="exams-h0">1) CFTe Level I — Mock Exam (14 أغسطس 2014)</h2>
@@ -9475,18 +9613,24 @@ Balance of payments = Current account + Capital account
 <li>ملحق 13 رسمًا بيانيًا.</li>
 </ul>
 <h3>الأسئلة</h3>
-<p><strong>السؤال 1 — الجزء أ</strong> (ملاحظة: ما تضيفه على الرسوم جزء هام جدًا من تحليلك؛ ارسم خطوط الاتجاه والنماذج بعناية وعرّفها بكلمات واضحة). الرسوم 1–7 لـ <strong>S&amp;P 500</strong> بأطر زمنية مختلفة:
-- حلّل من منظور <strong>طويل ومتوسط وقصير المدى</strong>، مدعّمًا بـ: الاتجاهات السائدة من الأطر المختلفة، مستويات الدعم/المقاومة، علامات الضعف/القوة، المؤشرات والمتوسطات الموجودة على الرسوم.
-- توقعاتك وتوصياتك للاتجاه المستقبلي (قصير ومتوسط وطويل).
-- توصياتك للعملاء طويلي وقصيري الأجل: <strong>تكتيك المتاجرة وأسلوب إدارة المال</strong> لمن هم داخل السوق ومن هم خارجه تمامًا.
-- الرسوم: (1) سنوي log + MA 10 سنوات (2) شهري log + MACD (12,26,9) (3) شهري حسابي + RSI (14) + ±DI من DMI (4) أسبوعي + Bollinger (20 SMA, 2 SD) + MACD (5) أسبوعي + CCI (20) + Stochastic (9,5,3) (6) يومي + Stochastic (9,5,3) + Momentum (14) (7) يومي + MACD Histogram.</p>
-<p><strong>السؤال 1 — الجزء ب</strong> (لا توجد إجابة واحدة صحيحة مطلقًا؛ الدرجات على الحجة الواضحة): محفظة <strong>S&amp;P 500 20%، ذهب 25%، نفط 15%، T-Note 40%</strong>؛ بناءً على الرسوم 8–13: تحليل موجز لكل سوق، وأي الأسواق يُزاد/يُخفض وزنها مع الأسباب. <strong>ملاحظة: كل المؤشرات محسوبة على منحنيات RS لا الأسعار.</strong>
-- (8) S&amp;P 500 أسبوعي + RS مقابل 10-Year UST-Note مع WMA 100 أسبوع + MACD للـ RS (9) S&amp;P 500 شموع أسبوعية + RS مقابل Brent (semi-log) (10) S&amp;P 500 خطي + RS مقابل الذهب مع SMA 40 أسبوعًا — <strong>Inverted Normal Scale</strong> + MACD للـ RS (11) الذهب semi-log + RS مقابل T-Note (12) T-Note + RS مقابل Brent + RSI للـ RS (13) Brent + RS مقابل الذهب مع Bollinger (20, 2) + RSI للـ RS.
-- (الحل النموذجي لهذا السؤال بعينه موجود في الكتيّب، الفصل 27: Brent &gt; SPX &gt; Gold &gt; T-Note ⇒ 40/23/22/15.)</p>
-<p><strong>السؤال 2</strong> (الثلاثة):
-1. اشرح بالتفصيل حساب <strong>MACD وStochastics وRSI</strong> (4 درجات).
-2. عرّف <strong>Market Sentiment</strong> واذكر 3 أمثلة لقياسها وكيف تُستخدم (3 درجات).
-3. حوّل رسمًا يوميًا لمؤشر سوق شرق أوسطي إلى <strong>Point and Figure بأسلوب الإغلاق، حجم الصندوق 50، الانعكاس 3</strong> (3 درجات).</p>
+<p><strong>السؤال 1 — الجزء أ</strong> (ملاحظة: ما تضيفه على الرسوم جزء هام جدًا من تحليلك؛ ارسم خطوط الاتجاه والنماذج بعناية وعرّفها بكلمات واضحة). الرسوم 1–7 لـ <strong>S&amp;P 500</strong> بأطر زمنية مختلفة:</p>
+<ul>
+<li>حلّل من منظور <strong>طويل ومتوسط وقصير المدى</strong>، مدعّمًا بـ: الاتجاهات السائدة من الأطر المختلفة، مستويات الدعم/المقاومة، علامات الضعف/القوة، المؤشرات والمتوسطات الموجودة على الرسوم.</li>
+<li>توقعاتك وتوصياتك للاتجاه المستقبلي (قصير ومتوسط وطويل).</li>
+<li>توصياتك للعملاء طويلي وقصيري الأجل: <strong>تكتيك المتاجرة وأسلوب إدارة المال</strong> لمن هم داخل السوق ومن هم خارجه تمامًا.</li>
+<li>الرسوم: (1) سنوي log + MA 10 سنوات (2) شهري log + MACD (12,26,9) (3) شهري حسابي + RSI (14) + ±DI من DMI (4) أسبوعي + Bollinger (20 SMA, 2 SD) + MACD (5) أسبوعي + CCI (20) + Stochastic (9,5,3) (6) يومي + Stochastic (9,5,3) + Momentum (14) (7) يومي + MACD Histogram.</li>
+</ul>
+<p><strong>السؤال 1 — الجزء ب</strong> (لا توجد إجابة واحدة صحيحة مطلقًا؛ الدرجات على الحجة الواضحة): محفظة <strong>S&amp;P 500 20%، ذهب 25%، نفط 15%، T-Note 40%</strong>؛ بناءً على الرسوم 8–13: تحليل موجز لكل سوق، وأي الأسواق يُزاد/يُخفض وزنها مع الأسباب. <strong>ملاحظة: كل المؤشرات محسوبة على منحنيات RS لا الأسعار.</strong></p>
+<ul>
+<li>(8) S&amp;P 500 أسبوعي + RS مقابل 10-Year UST-Note مع WMA 100 أسبوع + MACD للـ RS (9) S&amp;P 500 شموع أسبوعية + RS مقابل Brent (semi-log) (10) S&amp;P 500 خطي + RS مقابل الذهب مع SMA 40 أسبوعًا — <strong>Inverted Normal Scale</strong> + MACD للـ RS (11) الذهب semi-log + RS مقابل T-Note (12) T-Note + RS مقابل Brent + RSI للـ RS (13) Brent + RS مقابل الذهب مع Bollinger (20, 2) + RSI للـ RS.</li>
+<li>(الحل النموذجي لهذا السؤال بعينه موجود في الكتيّب، الفصل 27: Brent &gt; SPX &gt; Gold &gt; T-Note ⇒ 40/23/22/15.)</li>
+</ul>
+<p><strong>السؤال 2</strong> (الثلاثة):</p>
+<ol>
+<li>اشرح بالتفصيل حساب <strong>MACD وStochastics وRSI</strong> (4 درجات).</li>
+<li>عرّف <strong>Market Sentiment</strong> واذكر 3 أمثلة لقياسها وكيف تُستخدم (3 درجات).</li>
+<li>حوّل رسمًا يوميًا لمؤشر سوق شرق أوسطي إلى <strong>Point and Figure بأسلوب الإغلاق، حجم الصندوق 50، الانعكاس 3</strong> (3 درجات).</li>
+</ol>
 <p><strong>السؤال 3</strong> (اثنان): (1) أسلوب متاجرة طويل الأجل بحركة السعر + <strong>MACD + ±DI من DMI</strong>: إشارات الشراء طويل الأجل وكيفية الخروج (2) الفجوات في صعود قوي: أيها في البداية والمنتصف والنهاية (3) <strong>P&amp;F بلا مقياس زمني لكنه رسم ثنائي الأبعاد مماثل للـ Bar والـ Line</strong> — اشرح.
 <strong>السؤال 4</strong> (اثنان): (1) أوجه التشابه بين <strong>Triple top والمثلث الهابط</strong> بعد اتجاه صاعد، والاتجاه المتوقع وحساب الهدف لكليهما (2) كيف تشبه إشارة البيع بنظرية <strong>داو</strong> إشارة البيع بالـ <strong>Breadth</strong> (3) «مبدأ موجات <strong>Elliott</strong> تفاعلي وينجح تقليديًا كغطاء تأكيدي أكثر منه أداة توقع» — وجهة نظرك وأمثلة لتحسين الاعتماد عليه.
 <strong>السؤال 5</strong> (اثنان): (1) لماذا <strong>Bullish engulfing وShooting star</strong> أقوى من <strong>Piercing وHanging man</strong> مع السيكولوجية (2) ما <strong>تقرير COT</strong> وكيف يُستخدم (3) مؤشرا breadth متضاربان: نسبة الأسهم بقمة 4 أسابيع جديدة ضعيفة جدًا، لكن نسبة أكبر فوق متوسط 200 يوم — صف حالة السوق ومرحلة الدورة واقترح استراتيجية.
@@ -9503,13 +9647,17 @@ Balance of payments = Current account + Capital account
 </ul>
 <h3>الأسئلة</h3>
 <p><strong>السؤال 1 — أ</strong>: نفس صيغة 2017 حرفيًا تقريبًا (الرسوم 1–7 لـ S&amp;P 500؛ طويل ومتوسط وقصير؛ اتجاهات، دعم/مقاومة، ضعف/قوة، مؤشرات ومتوسطات؛ توقعات؛ أساليب التداول وإدارة الأموال لطويلي وقصيري الأجل داخل السوق وخارجه). الرسوم: (1) سنوي log + <strong>EMA 10 سنوات</strong> (2) شهري log + <strong>EMA 20 شهرًا</strong> + MACD (12,26,9) (3) شهري حسابي + RSI (14) + ±DI (4) أسبوعي + Bollinger (20, 2) + MACD (5) أسبوعي + CCI (20) + Stochastic (9,5,3) (6) يومي + Stochastic (9,5,3) + Momentum (14) (7) يومي + MACD Histogram. (نفس مواصفات 2017 مع استبدال MA بـ EMA وإضافة EMA 20 شهرًا.)</p>
-<p><strong>السؤال 1 — ب</strong>: محفظة <strong>S&amp;P 500 50%، العوائد (Yields) 50%، الذهب 0%، النفط 0%</strong>؛ بناءً على الرسوم 8–13 (يومية): تحليل مختصر للأسواق الأربعة، الأسواق التي يجب زيادة/تقليل نسبتها مع الأسباب، و<strong>إعادة موازنة النسب</strong> بناءً على الأداء.
-- (8) S&amp;P 500 مقابل CBOE 10-Year Treasury Yield RS (9) S&amp;P 500 مقابل Crude Oil RS (10) S&amp;P 500 مقابل الذهب RS + MACD للـ RS (11) الذهب + MACD الذهب + الذهب مقابل العائد RS (12) العائد مقابل النفط RS (13) النفط مقابل الذهب RS + RSI للـ RS.
-- ملاحظة: المقارنة هنا مع <strong>العائد (Yield)</strong> لا سعر السند كما في 2017 (؟ انتبه: ارتفاع العائد = هبوط سعر السند).</p>
-<p><strong>السؤال 2</strong> (الثلاثة، 10 نقاط):
-1. (5 نقاط) سامي محلل فني؛ عميلة تملك: <strong>Apple 25%، Boeing 25%، Nike 20%، Walt Disney 15%، Caterpillar 15%</strong>. أولًا: بناءً على أداء سوق الأسهم الأمريكي، هل تُبقي كل استثماراتها في الأسهم أم تقلل الأسهم وتستثمر في أسواق أخرى؟ (يمكن الاستعانة برسوم القوة النسبية في السؤال السابق). ثانيًا: إن لم تنوِ شراء أسهم جديدة، كيف يعدّل أوزان الأسهم لتتماشى مع أدائها؟ — الرسوم بنفس الترتيب، والمؤشر <strong>MACD مع EMA 20</strong>.
-2. (3 نقاط) اشرح بالتفصيل حساب <strong>Stochastic (9,5,3)</strong>.
-3. (2 نقطة) سيكولوجية <strong>Hammer</strong> و<strong>Shooting Star</strong>.</p>
+<p><strong>السؤال 1 — ب</strong>: محفظة <strong>S&amp;P 500 50%، العوائد (Yields) 50%، الذهب 0%، النفط 0%</strong>؛ بناءً على الرسوم 8–13 (يومية): تحليل مختصر للأسواق الأربعة، الأسواق التي يجب زيادة/تقليل نسبتها مع الأسباب، و<strong>إعادة موازنة النسب</strong> بناءً على الأداء.</p>
+<ul>
+<li>(8) S&amp;P 500 مقابل CBOE 10-Year Treasury Yield RS (9) S&amp;P 500 مقابل Crude Oil RS (10) S&amp;P 500 مقابل الذهب RS + MACD للـ RS (11) الذهب + MACD الذهب + الذهب مقابل العائد RS (12) العائد مقابل النفط RS (13) النفط مقابل الذهب RS + RSI للـ RS.</li>
+<li>ملاحظة: المقارنة هنا مع <strong>العائد (Yield)</strong> لا سعر السند كما في 2017 (؟ انتبه: ارتفاع العائد = هبوط سعر السند).</li>
+</ul>
+<p><strong>السؤال 2</strong> (الثلاثة، 10 نقاط):</p>
+<ol>
+<li>(5 نقاط) سامي محلل فني؛ عميلة تملك: <strong>Apple 25%، Boeing 25%، Nike 20%، Walt Disney 15%، Caterpillar 15%</strong>. أولًا: بناءً على أداء سوق الأسهم الأمريكي، هل تُبقي كل استثماراتها في الأسهم أم تقلل الأسهم وتستثمر في أسواق أخرى؟ (يمكن الاستعانة برسوم القوة النسبية في السؤال السابق). ثانيًا: إن لم تنوِ شراء أسهم جديدة، كيف يعدّل أوزان الأسهم لتتماشى مع أدائها؟ — الرسوم بنفس الترتيب، والمؤشر <strong>MACD مع EMA 20</strong>.</li>
+<li>(3 نقاط) اشرح بالتفصيل حساب <strong>Stochastic (9,5,3)</strong>.</li>
+<li>(2 نقطة) سيكولوجية <strong>Hammer</strong> و<strong>Shooting Star</strong>.</li>
+</ol>
 <p><strong>السؤال 3</strong> (اثنان): (1) في سهم صاعد رئيسيًا ظهرت <strong>قمة أدنى</strong> ثم <strong>قاع أعلى</strong>: ما الشكل (؟ مثلث متماثل غالبًا — راجع س22 في CFTe I) وسيكولوجيته والتوقع بعد اكتماله (2) <strong>Sentiment Indicators</strong> تشير لتفاؤل لا محدود عند القمم: اشرح مؤشرين يعطيان إشارات قوية عند القمم الرئيسية (3) نوع الرسم المفضل لديك: <strong>Bar أو Candlesticks أو P&amp;F</strong> مع مبررات الاختيار.
 <strong>السؤال 4</strong> (اثنان): (1) أهمية <strong>الدعم والمقاومة</strong> وأنواعها وأقواها وكيف تستخدمها في استراتيجيتك (2) <strong>Money Flow Index (MFI)</strong> — مؤشر حجم مقتبس من RSI: الحساب والاستخدامات (3) الفرق بين <strong>Renko وPoint and Figure</strong>.
 <strong>السؤال 5</strong> (اثنان): (1) أهمية <strong>نظرية داو</strong> ولماذا ما زالت ناجحة؛ اذكر كل نقاطها مع شرح تفصيلي لنقطة واحدة (2) <strong>Market Breadth</strong> ومفهوم <strong>التباين (divergence)</strong> حين تتحرك عكس مؤشر السوق (3) أهمية <strong>Leading Span 1 وLeading Span 2 في Ichimoku</strong> وكيف نستخدمهما.
@@ -9594,10 +9742,12 @@ Balance of payments = Current account + Capital account
 <section class="sec" id="sec-best-answers" data-id="best-answers" data-title="الإجابات النموذجية">
 <header class="sec-head"><p class="eyebrow">الامتحانات وكتابة التقرير</p><h1>الإجابات النموذجية للامتحانات الثلاثة</h1>
 <p class="src">المصدر: CFTeI_Mock_Aug14 + CFTeII_Mock_Oct17 + CFTeII_Exam_11Apr24 (Best Answers) — 21 صفحة</p><div class="strip"><span class="strip-l">صفحات الأصل</span><div class="chips"><a class="ref" href="img/ba1_01.jpg" data-img="ba1_01" target="_blank" rel="noopener">ص1</a><a class="ref" href="img/ba1_02.jpg" data-img="ba1_02" target="_blank" rel="noopener">ص2</a><a class="ref" href="img/ba1_03.jpg" data-img="ba1_03" target="_blank" rel="noopener">ص3</a><a class="ref" href="img/ba1_04.jpg" data-img="ba1_04" target="_blank" rel="noopener">ص4</a><a class="ref" href="img/ba1_05.jpg" data-img="ba1_05" target="_blank" rel="noopener">ص5</a><a class="ref" href="img/ba1_06.jpg" data-img="ba1_06" target="_blank" rel="noopener">ص6</a><a class="ref" href="img/ba1_07.jpg" data-img="ba1_07" target="_blank" rel="noopener">ص7</a></div></div></header>
-<details class="toc" open><summary>في هذا القسم</summary><ul><li><a href="#best-answers" data-jump="best-answers-h0">الجزء 1 — CFTe I: الامتحان التجريبي 14 أغسطس 2014 (60 سؤالًا)</a></li><li><a href="#best-answers" data-jump="best-answers-h1">الجزء 2 — CFTe II: الامتحان التجريبي 19 أكتوبر 2017</a></li><li><a href="#best-answers" data-jump="best-answers-h2">الجزء 3 — CFTe II: امتحان 11 أبريل 2024</a></li><li><a href="#best-answers" data-jump="best-answers-h3">تعارضات مع الملخصات الأخرى</a></li></ul></details><div class="prose"><p>المصادر (كل ملف 7 صفحات):
-1. <code>F:/Ceta3/CFTeI_Mock_Aug14_Best_Answers_AR.pdf</code> — أفضل الإجابات للامتحان التجريبي CFTe I (14 أغسطس 2014)، 60 سؤال اختيار من متعدد.
-2. <code>F:/Ceta3/CFTeII_Mock_Oct17_Best_Answers_AR.pdf</code> — إجابات نموذجية للامتحان التجريبي CFTe II (19 أكتوبر 2017).
-3. <code>F:/Ceta3/CFTeII_Exam_11Apr24_Best_Answers_AR.pdf</code> — إجابات نموذجية لامتحان CFTe II (11 أبريل 2024).</p>
+<details class="toc" open><summary>في هذا القسم</summary><ul><li><a href="#best-answers" data-jump="best-answers-h0">الجزء 1 — CFTe I: الامتحان التجريبي 14 أغسطس 2014 (60 سؤالًا)</a></li><li><a href="#best-answers" data-jump="best-answers-h1">الجزء 2 — CFTe II: الامتحان التجريبي 19 أكتوبر 2017</a></li><li><a href="#best-answers" data-jump="best-answers-h2">الجزء 3 — CFTe II: امتحان 11 أبريل 2024</a></li><li><a href="#best-answers" data-jump="best-answers-h3">تعارضات مع الملخصات الأخرى</a></li></ul></details><div class="prose"><p>المصادر (كل ملف 7 صفحات):</p>
+<ol>
+<li><code>F:/Ceta3/CFTeI_Mock_Aug14_Best_Answers_AR.pdf</code> — أفضل الإجابات للامتحان التجريبي CFTe I (14 أغسطس 2014)، 60 سؤال اختيار من متعدد.</li>
+<li><code>F:/Ceta3/CFTeII_Mock_Oct17_Best_Answers_AR.pdf</code> — إجابات نموذجية للامتحان التجريبي CFTe II (19 أكتوبر 2017).</li>
+<li><code>F:/Ceta3/CFTeII_Exam_11Apr24_Best_Answers_AR.pdf</code> — إجابات نموذجية لامتحان CFTe II (11 أبريل 2024).</li>
+</ol>
 <p><strong>تنبيه الملفات نفسها</strong>: إجابات CFTe II (2017 و2024) <strong>إجابات نموذجية مدعومة بالتحليل، وليست مفتاح التصحيح الرسمي لـ IFTA</strong>؛ المستويات مقروءة بالعين من الرسوم المطبوعة (± خط شبكة واحد)، وأُجيب عن كل الأسئلة الاختيارية للمقارنة بأي سؤالين تختارهما. أما CFTe I فيعتمد <strong>مفتاح IFTA الرسمي</strong> مع شرح مختصر.</p>
 <h2 id="best-answers-h0">الجزء 1 — CFTe I: الامتحان التجريبي 14 أغسطس 2014 (60 سؤالًا) <a class="ref" data-img="ba1_01" href="img/ba1_01.jpg" rel="noopener" target="_blank">الأصل ص1</a></h2>
 <h3>طريقة الملف <a class="ref" data-img="ba1_01" href="img/ba1_01.jpg" rel="noopener" target="_blank">ص1</a></h3>
@@ -11312,12 +11462,14 @@ Balance of payments = Current account + Capital account
 <section class="sec" id="sec-report" data-id="report" data-title="كتابة التقرير">
 <header class="sec-head"><p class="eyebrow">الامتحانات وكتابة التقرير</p><h1>كتابة التقرير (Report Writing)</h1>
 <p class="src">المصدر: Practice Sheet + Marking Scheme</p></header>
-<details class="toc" open><summary>في هذا القسم</summary><ul><li><a href="#report" data-jump="report-h0">1. نص سؤال ESTA النموذجي (بالأصل)</a></li><li><a href="#report" data-jump="report-h1">2. ما يجب أن يحتويه التقرير (البنية بالترتيب)</a></li><li><a href="#report" data-jump="report-h2">3. نظام التصحيح (Marking Scheme) — نقاط كل معيار (المجموع 100)</a></li><li><a href="#report" data-jump="report-h3">4. قائمة تحقق عملية قبل التسليم (من الورقة)</a></li><li><a href="#report" data-jump="report-h4">5. قالب جاهز للكتابة (هيكل فقرات — يُكتب نصًا متصلًا بلا عناوين في الامتحان)</a></li><li><a href="#report" data-jump="report-h5">نقاط امتحانية مختصرة</a></li></ul></details><div class="prose"><p>المصادر:
-- <code>F:/Ceta3/Report_Writing_Practice_Sheet_Arabic.pdf</code> (3 صفحات) — ورقة إجابة تدريبية.
-- <code>F:/Ceta3/Report_Writing_Marking_Scheme_Arabic.pdf</code> (صفحة واحدة) — نظام التصحيح التدريبي.
-- المنهج المعتمد فيهما: شرائح ESTA لكتابة التقارير + جلسة الأستاذ محمد أشرف (التوقيتات بين أقواس مربعة تشير لتسجيل الجلسة).
-- <strong>تنبيه صريح في المصدرين</strong>: الأوزان <strong>نظام تدريبي وليس توزيع ESTA الرسمي</strong> — التوزيع الرسمي غير موجود في مادة الكورس، والأوزان مبنية على ما تركّز عليه الشرائح والجلسة.
-- صلة بالامتحان: يقابل السؤال 1-أ في CFTe II (تقرير S&amp;P 500 متعدد الأطر) — انظر <code>typed_mock_exams.md</code>.</p>
+<details class="toc" open><summary>في هذا القسم</summary><ul><li><a href="#report" data-jump="report-h0">1. نص سؤال ESTA النموذجي (بالأصل)</a></li><li><a href="#report" data-jump="report-h1">2. ما يجب أن يحتويه التقرير (البنية بالترتيب)</a></li><li><a href="#report" data-jump="report-h2">3. نظام التصحيح (Marking Scheme) — نقاط كل معيار (المجموع 100)</a></li><li><a href="#report" data-jump="report-h3">4. قائمة تحقق عملية قبل التسليم (من الورقة)</a></li><li><a href="#report" data-jump="report-h4">5. قالب جاهز للكتابة (هيكل فقرات — يُكتب نصًا متصلًا بلا عناوين في الامتحان)</a></li><li><a href="#report" data-jump="report-h5">نقاط امتحانية مختصرة</a></li></ul></details><div class="prose"><p>المصادر:</p>
+<ul>
+<li><code>F:/Ceta3/Report_Writing_Practice_Sheet_Arabic.pdf</code> (3 صفحات) — ورقة إجابة تدريبية.</li>
+<li><code>F:/Ceta3/Report_Writing_Marking_Scheme_Arabic.pdf</code> (صفحة واحدة) — نظام التصحيح التدريبي.</li>
+<li>المنهج المعتمد فيهما: شرائح ESTA لكتابة التقارير + جلسة الأستاذ محمد أشرف (التوقيتات بين أقواس مربعة تشير لتسجيل الجلسة).</li>
+<li><strong>تنبيه صريح في المصدرين</strong>: الأوزان <strong>نظام تدريبي وليس توزيع ESTA الرسمي</strong> — التوزيع الرسمي غير موجود في مادة الكورس، والأوزان مبنية على ما تركّز عليه الشرائح والجلسة.</li>
+<li>صلة بالامتحان: يقابل السؤال 1-أ في CFTe II (تقرير S&amp;P 500 متعدد الأطر) — انظر <code>typed_mock_exams.md</code>.</li>
+</ul>
 <hr/>
 <h2 id="report-h0">1. نص سؤال ESTA النموذجي (بالأصل)</h2>
 <blockquote>
